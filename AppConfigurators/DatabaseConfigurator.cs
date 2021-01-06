@@ -11,8 +11,8 @@ namespace OnlineQuizWebApp.AppConfigurators
         {
             var dbProvider = DatabaseProviderFactory(services, connectionString);
             dbProvider.ConfigureAppDatabase();
-           // dbProvider.ConfigureHangfireDatabase();
-            //dbProvider.ConfigureSqlKata();
+            dbProvider.ConfigureHangfireDatabase();
+            dbProvider.ConfigureSqlKata();
             dbProvider.ConfigureFluentMigration();
         }
 

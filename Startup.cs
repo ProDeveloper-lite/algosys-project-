@@ -15,13 +15,13 @@ namespace OnlineQuizWebApp
         private readonly IWebHostEnvironment _environment;
         private readonly IConfiguration _configuration;
         private readonly AppConnectionString _connectionStrings;
-        // private readonly AppJsonSetting _appSettings;
+         private readonly AppJsonSetting _appSettings;
         public Startup(IWebHostEnvironment env, IConfiguration config)
         {
             _environment = env;
             _configuration = config;
             _connectionStrings = new AppConnectionString(_configuration);
-            //  _appSettings = _configuration.CreateConfig<AppJsonSetting>("AppSettings");
+            //_appSettings = _configuration.CreateConfig<AppJsonSetting>("AppSettings");
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -29,7 +29,7 @@ namespace OnlineQuizWebApp
         {
             services.AddSingleton(_connectionStrings);
             services.AddApplicationModules(_environment); //for adding service n Iservice depend
-           // services.AddAutoMapperAssemblies(); // for adding mapper logic
+                                                          // services.AddAutoMapperAssemblies(); // for adding mapper logic
             services.AddHttpClient();
             services.AddControllersWithViews();
             services.ConfigureDatabase(_connectionStrings);
