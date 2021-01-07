@@ -8,6 +8,6 @@ namespace OnlineQuizWebApp.Modules.Quiz.EnglishQuizBL
 {
     public interface IEnglishQuizService
     {
-        public Task<EnglishQuiz> GetAll();
+        public Task<List<EnglishQuiz>> GetAll();
     }
 }

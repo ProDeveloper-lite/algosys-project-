@@ -7,11 +7,14 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public englishQuiz: EnglishQuiz[];
+  public englishQuiz: EnglishQuiz;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<EnglishQuiz[]>(baseUrl + 'englishquiz').subscribe(result => {
+  constructor(private _http: HttpClient, @Inject('BASE_URL')private baseUrl: string) {  }
+
+  public getData(){
+    this._http.get<EnglishQuiz>(this.baseUrl + 'weatherforecast').subscribe(result => {
       this.englishQuiz = result;
+      console.log(result);
     }, error => console.error(error));
   }
 }

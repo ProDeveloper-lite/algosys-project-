@@ -16,10 +16,10 @@ namespace OnlineQuizWebApp.Modules.Quiz.EnglishQuizBL
         {
             _dbContext = dbContext;
         }
-        public async Task<EnglishQuiz> GetAll()
+        public async Task<List<EnglishQuiz>> GetAll()
         {
-            var organizations = await _dbContext.EnglishQuizs.ToListAsync();
-            return organizations[0];
+            var quizs = await _dbContext.EnglishQuiz.ToListAsync();
+            return quizs;
         }
     }
 }
