@@ -1,4 +1,20 @@
-<h1>Hello, world!</h1>
 <h2>Show English quiz</h2>
 <button (click)="getData()">getQuiz</button>
-<h3>{{englishQuiz}}</h3>
+<br/>
+<br/>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="englishQuiz">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Question</th>
+        <th>Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quiz of englishQuiz">
+        <td>{{ quiz.id }}</td>
+        <td>{{ quiz.question }}</td>
+        <td>{{ quiz.answer }}</td>
+      </tr>
+    </tbody>
+  </table>

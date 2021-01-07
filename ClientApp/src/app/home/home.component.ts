@@ -1,26 +1,23 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { Component } from '@angular/core';
+import { EnglishQuizApiService,EnglishQuizDtos } from '@module/serverside';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public englishQuiz: EnglishQuiz;
+  public englishQuiz: EnglishQuizDtos.EnglishQuizDto[];
 
-  constructor(private _http: HttpClient, @Inject('BASE_URL')private baseUrl: string) {  }
+  constructor(private service: EnglishQuizApiService) {  }
 
   public getData(){
-    this._http.get<EnglishQuiz>(this.baseUrl + 'weatherforecast').subscribe(result => {
-      this.englishQuiz = result;
-      console.log(result);
-    }, error => console.error(error));
+    this.service
+    .getAll()
+    .subscribe(result => {
+        this.englishQuiz = result;
+        console.log(result);
+      }, error => console.error(error));
   }
 }
 
-interface EnglishQuiz {
- id:number;
- question:string;
- answer:string;
-}
+
