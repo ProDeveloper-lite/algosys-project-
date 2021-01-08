@@ -6,14 +6,12 @@ import { EnglishQuizApiService,EnglishQuizDtos } from '@module/serverside';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public englishQuiz: EnglishQuizDtos.EnglishQuizDto[];
+  public englishQuiz: EnglishQuizDtos.EnglishQuiz[];
 
   constructor(private service: EnglishQuizApiService) {  }
 
   public getData(){
-    this.service
-    .getAll()
-    .subscribe(result => {
+    this.service    .getAll()    .subscribe(result => {
         this.englishQuiz = result;
         console.log(result);
       }, error => console.error(error));
