@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { EnglishQuizApiService,EnglishQuizDtos } from '@module/serverside';
+import {QuizDetailApiService,QuizDetailDtos } from '@module/serverside';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public englishQuiz: EnglishQuizDtos.EnglishQuiz[];
+  public quizzes: QuizDetailDtos.QuizDetail[];
 
-  constructor(private service: EnglishQuizApiService) {  }
+  constructor(private service: QuizDetailApiService) {  }
 
   public getData(){
-    this.service    .getAll()    .subscribe(result => {
-        this.englishQuiz = result;
+    this.service.getAll().subscribe(result => {
+        this.quizzes = result;
         console.log(result);
       }, error => console.error(error));
   }

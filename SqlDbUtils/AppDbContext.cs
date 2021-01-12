@@ -16,7 +16,10 @@ namespace OnlineQuizWebApp.SqlDbUtils
         {
         }
 
-        public DbSet<EnglishQuiz> EnglishQuiz { get; set; }
+        public DbSet<QuizDetail> QuizDetail { get; set; }
+        public DbSet<QuestionDetail> QuestionDetail { get; set; }
+        public DbSet<QuizOptions> QuizOptions { get; set; }
+
 
         public override int SaveChanges()
         {

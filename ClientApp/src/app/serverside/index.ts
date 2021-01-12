@@ -1,6 +1,6 @@
 export * from './serverside.module';
 
-import * as EnglishQuizDtos from './dto/EnglishQuizDtos.dto';
-export { EnglishQuizDtos };
+import * as QuizDetailDtos from './dto/QuizDetailDtos.dto';
+export { QuizDetailDtos };
 
-export * from './api/english-quiz-api.service';
+export * from './api/quiz-detail-api.service';

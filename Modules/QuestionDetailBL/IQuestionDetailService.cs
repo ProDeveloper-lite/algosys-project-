@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineQuizWebApp.Modules.Quiz.EnglishQuizBL
+namespace OnlineQuizWebApp.Modules.QuestionDetailBL
 {
-    public class EnglishQuizDtos
+    public interface IQuestionDetailService
     {
     }
 }

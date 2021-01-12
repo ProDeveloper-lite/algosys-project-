@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EnglishQuiz } from '../dto/englishQuizDtos.dto';
+import { QuizDetail } from '../dto/QuizDetailDtos.dto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EnglishQuizApiService {
+export class QuizDetailApiService {
 
   constructor(private httpClient: HttpClient) {  }
 
-  private routeGetAll = () => `api/EnglishQuizApi`;
-    public getAll(): Observable<EnglishQuiz[]> {
+  private routeGetAll = () => `api/QuizDetailApi`;
+    public getAll(): Observable<QuizDetail[]> {
         const url = this.routeGetAll();
         return this.httpClient.get(url, undefined) as Observable<any>;
     }

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnlineQuizWebApp.Modules.Quiz.EnglishQuizBL;
+using OnlineQuizWebApp.Modules.QuestionDetailBL;
+using OnlineQuizWebApp.Modules.QuizDetailBL;
+using OnlineQuizWebApp.Modules.QuizOptionsBL;
 
 namespace OnlineQuizWebApp.AppConfigurators
 {
@@ -14,7 +16,9 @@ namespace OnlineQuizWebApp.AppConfigurators
 
         public static void RegisterQuizModuleDependencies(this IServiceCollection services)
         {
-            services.AddTransient<IEnglishQuizService, EnglishQuizService>();
+            services.AddTransient<IQuizDetailService, QuizDetailService>();
+            services.AddTransient<IQuestionDetailService, QuestionDetailService>();
+            services.AddTransient<IQuizOptionsService, QuizOptionsService>();
         }
     }
 }

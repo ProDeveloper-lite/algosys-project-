@@ -2,7 +2,7 @@
 <button (click)="getData()">getQuiz</button>
 <br/>
 <br/>
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="englishQuiz">
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="quizzes">
     <thead>
       <tr>
         <th>Id</th>
@@ -11,10 +11,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let quiz of englishQuiz">
+      <tr *ngFor="let quiz of quizzes">
         <td>{{ quiz.id }}</td>
-        <td>{{ quiz.question }}</td>
-        <td>{{ quiz.answer }}</td>
+        <td>{{ quiz.complexcity }}</td>
+        <td>{{ quiz.question?.questionText }}</td>
+        <td>{{ quiz.subject }}</td>
       </tr>
     </tbody>
   </table>

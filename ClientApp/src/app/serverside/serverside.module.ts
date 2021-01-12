@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { EnglishQuizApiService } from './api/english-quiz-api.service';
+import { QuizDetailApiService } from './api/quiz-detail-api.service';
 
 @NgModule({
     imports: [
@@ -9,7 +9,7 @@ import { EnglishQuizApiService } from './api/english-quiz-api.service';
         HttpClientModule
     ],
     providers: [
-      EnglishQuizApiService,
+      QuizDetailApiService,
     ]
 })
 
