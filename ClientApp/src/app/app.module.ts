@@ -34,10 +34,10 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     FlexLayoutModule,
     FormlyModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'student', component: CounterComponent },
-      { path: 'teacher', component: FetchDataComponent },
-    ])
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'student', component: CounterComponent },
+    { path: 'teacher', component: FetchDataComponent },
+], { relativeLinkResolution: 'legacy' })
   ],
   providers: [
     Location,
