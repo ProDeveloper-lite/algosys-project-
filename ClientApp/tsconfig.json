@@ -18,6 +18,9 @@
       "dom"
     ],
     "paths": {
+      "@module/material": [
+        "src/app/shared/external-modules/ng-material.module"
+    ],
     "@module/serverside": [
       "src/app/serverside/index"
   ],
