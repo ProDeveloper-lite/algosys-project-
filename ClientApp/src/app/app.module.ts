@@ -8,36 +8,28 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { NgMaterialModule } from '@module/material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from '@module/core';
 
-import { AppComponent } from './app.component';
+import {RouteList, AppComponent } from '@module/app';
 import { ServersideModule } from '@module/serverside';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
-  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     NgMaterialModule,
+    CoreModule,
     ServersideModule,
     FlexLayoutModule,
     FormlyModule,
-    RouterModule.forRoot([
-    { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'student', component: CounterComponent },
-    { path: 'teacher', component: FetchDataComponent },
-], { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(RouteList) // this MUST be last
+  ],
+  declarations: [
+    AppComponent,
+    HomeComponent,
   ],
   providers: [
     Location,

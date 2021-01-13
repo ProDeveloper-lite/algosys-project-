@@ -1,0 +1,17 @@
+.menu-parent {
+  border: 1px solid blueviolet;
+  border-radius: 4%;
+  cursor: pointer;
+}
+
+.logout-menu {
+  width: 100%;
+  .mat-mini-fab.mat-accent {
+    background-color: #b5aeb0;
+  }
+}
+
+.site-title {
+  cursor: pointer;
+  padding-right: 20px;
+}

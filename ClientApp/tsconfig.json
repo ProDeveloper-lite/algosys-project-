@@ -21,9 +21,24 @@
       "@module/material": [
         "src/app/shared/external-modules/ng-material.module"
     ],
+    "@module/core": [
+      "src/app/core/index"
+  ],
+  "@module/app": [
+    "src/app/app-server/index"
+],
     "@module/serverside": [
       "src/app/serverside/index"
   ],
+  "@module/shared": [
+    "src/app/shared/index"
+],
+"@module/exam": [
+  "src/app/exam/index"
+],
+"@module/quiz": [
+  "src/app/quiz/index"
+],
 }
   }
 }

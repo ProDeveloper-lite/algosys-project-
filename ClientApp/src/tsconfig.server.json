@@ -4,7 +4,7 @@
     "target": "es2016"
   },
   "angularCompilerOptions": {
-    "entryModule": "app/app.server.module#AppServerModule"
+    "entryModule": "app/app-server/app.server.module#AppServerModule"
   },
   "files": [
     "main.ts"
