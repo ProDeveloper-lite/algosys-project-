@@ -1,5 +1,6 @@
 import { QuestionDetail } from "./QuestionDetailDtos.dto";
 import { Subject } from "./QuizEnums.dto";
+import { QuizOptions } from "./QuizOptionsDtos.dto";
 
 export interface QuizDetail{
     id : number;
@@ -9,5 +10,5 @@ export interface QuizDetail{
     isActive : boolean;
     questionId : number;
     question : QuestionDetail;
-    options : string[];
+    options : QuizOptions[];
 }

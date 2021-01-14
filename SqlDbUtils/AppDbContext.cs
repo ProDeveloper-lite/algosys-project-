@@ -1,5 +1,7 @@
 ﻿using System.Data.Common;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
@@ -21,13 +23,29 @@ namespace OnlineQuizWebApp.SqlDbUtils
         public DbSet<QuizOptions> QuizOptions { get; set; }
 
 
+        #region model-builder
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            EfConventions.CustomConventions(builder);
+            base.OnModelCreating(builder);
+            builder.QuizEfMapper();
+            //  builder.ExamEfMapper();  going to be add
+        }
+
         public override int SaveChanges()
         {
             ChangeTracker.DetectChanges();
-            //ChangeTracker.SetPropertiesForCreate(_userId);
-            //ChangeTracker.SetPropertiesForUpdate(_userId);
             return base.SaveChanges();
         }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            ChangeTracker.DetectChanges();
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        #endregion
 
         #region dbType
         public bool IsSqlServerDatabase => Database.IsSqlServer();
