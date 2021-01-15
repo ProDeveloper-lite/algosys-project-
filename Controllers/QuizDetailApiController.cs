@@ -7,19 +7,25 @@ using System.Threading.Tasks;
 
 namespace OnlineQuizWebApp.Controllers
 {
-    public class EnglishQuizApiController: ApiControllerBase
+    public class QuizDetailApiController: ApiControllerBase
     {
         private readonly IQuizDetailService _service;
 
-        public EnglishQuizApiController(IQuizDetailService service)
+        public QuizDetailApiController(IQuizDetailService service)
         {
             _service = service;
         }
 
         [HttpGet]
-        public async Task<List<QuizDetail>> Get()
+        public async Task<List<QuizDetail>> GetAll()
         {
             return await _service.GetAll();
+        }
+
+        [HttpGet("{quizId}")]
+        public async Task<QuizDetail> GetById(int quizId)
+        {
+            return await _service.GetById(quizId);
         }
     }
 }

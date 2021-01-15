@@ -20,5 +20,11 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
             var quizs = await _dbContext.QuizDetail.ToListAsync();
             return quizs;
         }
+
+        public async Task<QuizDetail> GetById(int quizId)
+        {
+            var quizDetail = await _dbContext.QuizDetail.FindAsync(quizId);
+            return quizDetail;
+        }
     }
 }

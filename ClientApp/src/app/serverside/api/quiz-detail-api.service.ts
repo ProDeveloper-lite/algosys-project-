@@ -15,4 +15,10 @@ export class QuizDetailApiService {
         const url = this.routeGetAll();
         return this.httpClient.get(url, undefined) as Observable<any>;
     }
+
+    private routeGetById = (quizId: number) => `api/QuizDetailApi/${quizId}`;
+    public getById(quizId: number): Observable<QuizDetail> {
+        const url = this.routeGetById(quizId);
+        return this.httpClient.get(url, undefined) as Observable<any>;
+    }
 }
