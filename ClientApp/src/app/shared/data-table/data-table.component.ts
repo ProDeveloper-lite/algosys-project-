@@ -21,6 +21,8 @@ export class DataTableComponent implements OnInit {
     }
   }
 
-  public rowClick() { }
+  public rowClick(item: any) {
+    this.config.eventFromTable.emit({ action: 'View', payload: item });
+  }
 
 }
