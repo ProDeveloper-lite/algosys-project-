@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineQuizWebApp.DataLayer.QuizDL;
 using OnlineQuizWebApp.Modules.QuizDetailBL;
 using OnlineQuizWebApp.Utilities;
 using System.Collections.Generic;
@@ -17,13 +16,13 @@ namespace OnlineQuizWebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<List<QuizDetail>> GetAll()
+        public async Task<List<QuizDetailDtos.QuizDetailDto>> GetAll()
         {
             return await _service.GetAll();
         }
 
         [HttpGet("{quizId}")]
-        public async Task<QuizDetail> GetById(int quizId)
+        public async Task<QuizDetailDtos.QuizDetailDto> GetById(int quizId)
         {
             return await _service.GetById(quizId);
         }

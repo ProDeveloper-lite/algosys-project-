@@ -7,7 +7,7 @@ import { Subject } from '../serverside/dto/QuizEnums.dto';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public quizzes: QuizDetailDtos.QuizDetail[];
+  public quizzes: QuizDetailDtos.QuizDetailDto[];
 
   constructor(private service: QuizDetailApiService) {  }
 
