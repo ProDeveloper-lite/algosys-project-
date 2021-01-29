@@ -11,6 +11,6 @@ export function RouteList(): Route[] {
                 title: 'Exam Detail',
                 isMenu: true
             }
-        }
+        },
     ] as CustomRoute[];
 };

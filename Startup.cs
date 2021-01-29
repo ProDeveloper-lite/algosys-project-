@@ -14,6 +14,7 @@ namespace OnlineQuizWebApp
         private readonly IWebHostEnvironment _environment;
         private readonly IConfiguration _configuration;
         private readonly AppConnectionString _connectionStrings;
+
         public Startup(IWebHostEnvironment env, IConfiguration config)
         {
             _environment = env;
@@ -25,13 +26,14 @@ namespace OnlineQuizWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_connectionStrings);
+            services.Configure<IISServerOptions>(options => { options.AutomaticAuthentication = false; });
             services.AddApplicationModules(_environment); //for adding service n Iservice depend
-         // services.AddAutoMapperAssemblies(); // for adding mapper logic
+            services.AddAutoMapperAssemblies();
             services.AddHttpClient();
             services.AddControllersWithViews();
+            services.ConfigureMvc();
             services.AddCors();
             services.ConfigureDatabase(_connectionStrings);
-
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -52,7 +54,6 @@ namespace OnlineQuizWebApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
@@ -61,7 +62,7 @@ namespace OnlineQuizWebApp
             }
 
             app.UseRouting();
-
+            // app.ValidateAutoMapper();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
