@@ -17,15 +17,21 @@ namespace OnlineQuizWebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<List<QuizDetail>> GetAll()
+        public async Task<List<QuizDetailDtos.QuizDetailDto>> GetAll()
         {
             return await _service.GetAll();
         }
 
         [HttpGet("{quizId}")]
-        public async Task<QuizDetail> GetById(int quizId)
+        public async Task<QuizDetailDtos.QuizDetailDto> GetById(int quizId)
         {
             return await _service.GetById(quizId);
+        }
+
+        [HttpGet("{subject}")]
+        public async Task<List<QuizDetailDtos.QuizDetailDto>> GetBySubject(QuizEnums.Subject subject)
+        {
+            return await _service.GetBySubject(subject);
         }
     }
 }

@@ -11,6 +11,8 @@ export { QuestionDetailDtos };
 
 import * as QuizEnums from './dto/QuizEnums.dto';
 export { QuizEnums };
+import * as DataTableDtos from './dto/DataTableDtos.dto';
+export { DataTableDtos }
 
 export * from './api/quiz-detail-api.service';
 export * from './api/quiz-option-api.service';
