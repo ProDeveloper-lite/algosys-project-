@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineQuizWebApp.DataLayer.QuizDL;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OnlineQuizWebApp.Modules.QuizDetailBL
@@ -12,6 +14,13 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
                 .Include(x => x.Question)
                 .Include(x => x.Options)
                 .SingleAsync(x => x.Id == quizId);
+        }
+
+        public static async Task<List<QuizDetail>> GetBySubject(this DbSet<QuizDetail> fdSet, QuizEnums.Subject subject)
+        {
+            return await fdSet
+                .Where(x => x.Subject == subject)
+                .ToListAsync();
         }
     }
 }
