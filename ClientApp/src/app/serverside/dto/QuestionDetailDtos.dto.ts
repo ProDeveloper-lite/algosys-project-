@@ -6,5 +6,5 @@ export interface QuestionDetail{
     type : QuestionType;
     questionText:string;
     quizDetailId :number;
-    quizDetail :QuizDetail
+    quizDetail :QuizDetail;
 }

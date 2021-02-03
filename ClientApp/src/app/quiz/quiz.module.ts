@@ -4,6 +4,9 @@ import { SharedModule } from '@module/shared';
 import { RouteList } from './routing/quiz.routing';
 import { QuizRoutingService } from './routing/quiz-routing.service';
 import { QuizDetailListComponent } from './quiz-detail-list/quiz-detail-list.component';
+import { QuizOptionsComponent } from './quiz-options/quiz-options.component';
+import { QuestionDetailComponent } from './question-detail/question-detail.component';
+
 
 @NgModule({
     imports: [
@@ -14,7 +17,9 @@ import { QuizDetailListComponent } from './quiz-detail-list/quiz-detail-list.com
         QuizRoutingService
     ],
     declarations: [
-        QuizDetailListComponent
+        QuizDetailListComponent,
+        QuizOptionsComponent,
+        QuestionDetailComponent
      ]
 })
 export class QuizModule {

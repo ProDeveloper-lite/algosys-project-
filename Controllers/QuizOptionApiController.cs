@@ -1,6 +1,6 @@
 ﻿using OnlineQuizWebApp.Utilities;
 using OnlineQuizWebApp.DataLayer.QuizDL;
-using OnlineQuizWebApp.Modules.QuizOptionsBL;
+using OnlineQuizWebApp.Modules.QuetionDetailBL;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -26,7 +26,5 @@ namespace OnlineQuizWebApp.Controllers
         {
             return await _service.GetById(quizoptionId);
         }
-
-
     }
 }
