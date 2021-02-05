@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { QuizDetailDto } from '../dto/QuizDetailDtos.dto';
+import { QuizEnums } from '..';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,11 @@ export class QuizDetailApiService {
         const url = this.routeGetById(quizId);
         return this.httpClient.get(url, undefined) as Observable<any>;
     }
+
+    private routeGetBySubject = (subject: QuizEnums.Subject) => `api/QuizDetailApi/${subject}`;
+    public getBySubject(subject: QuizEnums.Subject): Observable<QuizDetailDto[]> {
+        const url = this.routeGetBySubject(subject);
+        return this.httpClient.get(url, undefined) as Observable<any>;
+    }
+
 }

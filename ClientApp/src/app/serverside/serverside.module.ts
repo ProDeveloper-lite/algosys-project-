@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizDetailApiService } from './api/quiz-detail-api.service';
 import { QuizOptionApiService } from './api/quiz-option-api.service';
-import { QuestionDetailApiService } from './api/question-detail-api.service'
+import { QuestionDetailApiService } from './api/question-detail-api.service';
+import { Subject } from './dto/QuizEnums.dto';
 
 @NgModule({
     imports: [
@@ -13,7 +14,7 @@ import { QuestionDetailApiService } from './api/question-detail-api.service'
     providers: [
       QuizDetailApiService,
       QuizOptionApiService,
-      QuestionDetailApiService
+      QuestionDetailApiService,
     ]
 })
 
