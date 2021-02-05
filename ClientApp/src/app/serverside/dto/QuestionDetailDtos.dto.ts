@@ -1,4 +1,4 @@
-import {QuizDetail} from './QuizDetailDtos.dto';
+import {QuizDetailDto} from './QuizDetailDtos.dto';
 import { QuestionType } from './QuizEnums.dto';
 
 export interface QuestionDetail{
@@ -6,5 +6,5 @@ export interface QuestionDetail{
     type : QuestionType;
     questionText:string;
     quizDetailId :number;
-    quizDetail :QuizDetail;
+    quizDetail :QuizDetailDto;
 }
