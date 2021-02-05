@@ -48,17 +48,17 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove=".vs\AppConfigurators\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove=".vs\AppConfigurators\**" />
+    <EmbeddedResource Remove=".vs\AppConfigurators\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove=".vs\AppConfigurators\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include=".vs\AppConfigurators\DatabaseConfigurator.cs" />
-    <Compile Include=".vs\AppConfigurators\DatabaseProviders\IDatabaseProvider.cs" />
-    <Compile Include=".vs\AppConfigurators\DatabaseProviders\SqlServerDatabaseProvider.cs" />
-    <Compile Include=".vs\AppConfigurators\HangfireConfigurator.cs" />
-    <Compile Include=".vs\AppConfigurators\ModuleConfigurator.cs" />
+    <Folder Include=".vs\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
