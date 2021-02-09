@@ -23,8 +23,8 @@ export class QuizDetailApiService {
         return this.httpClient.get(url, undefined) as Observable<any>;
     }
 
-    private routeGetBySubject = (subject: QuizEnums.Subject) => `api/QuizDetailApi/${subject}`;
-    public getBySubject(subject: QuizEnums.Subject): Observable<QuizDetailDto[]> {
+    private routeGetBySubject = (subject: string) => `api/QuizDetailApi/getSubject/${subject}`;
+    public getBySubject(subject: string): Observable<QuizDetailDto[]> {
         const url = this.routeGetBySubject(subject);
         return this.httpClient.get(url, undefined) as Observable<any>;
     }

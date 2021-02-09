@@ -21,7 +21,7 @@ namespace OnlineQuizWebApp.AppConfigurators
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseEndpoints(route => route.MapControllerRoute("api", "api/{controller}/{action?}/{id?}"));
+            app.UseEndpoints(route => route.MapControllerRoute("api", "api/{controller}/{action?}/{id?}/{value?}"));
         }
     }
 }

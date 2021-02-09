@@ -5,8 +5,8 @@
             <mat-option *ngFor='let item of state.subjectList' value="{{item}}">{{item}}</mat-option>
         </mat-select>
     </mat-form-field>
-</div> 
-<br/><br/>
+</div>
+<br /><br />
 <div *ngIf="state.tableData">
-    <app-data-table [data] = "state.tableData" [cofig] = "state.tableconfig"></app-data-table>
+    <app-data-table [data]="state.tableData" [config]="state.tableConfig"></app-data-table>
 </div>

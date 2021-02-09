@@ -23,7 +23,7 @@ export function RouteList(): Route[] {
             }
         },
         {
-            path: 'Question',
+            path: 'Question/:id',
             component: QuestionDetailComponent,
             data:{
                 title:'Question Detail',
