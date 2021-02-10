@@ -6,7 +6,8 @@ import { QuizRoutingService } from './routing/quiz-routing.service';
 import { QuizDetailListComponent } from './quiz-detail-list/quiz-detail-list.component';
 import { QuizOptionsComponent } from './quiz-options/quiz-options.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
-
+import { QuizDetailsComponent } from './quiz-details/quiz-details.component';
+import {QuizDetailScreenApiService} from './api-wrapper/quiz-detail-screen-api.service';
 
 @NgModule({
     imports: [
@@ -14,12 +15,14 @@ import { QuestionDetailComponent } from './question-detail/question-detail.compo
         RouterModule.forChild(RouteList())
     ],
     providers: [
-        QuizRoutingService
+        QuizRoutingService,
+        QuizDetailScreenApiService
     ],
     declarations: [
         QuizDetailListComponent,
         QuizOptionsComponent,
-        QuestionDetailComponent
+        QuestionDetailComponent,
+        QuizDetailsComponent,
      ]
 })
 export class QuizModule {
