@@ -1,8 +1,6 @@
-import { Subject } from "./QuizEnums.dto";
-
 export interface QuizDetailDto {
     id: number;
-    subject: Subject;
+    subjectId: number;
     complexcity: number;
     topic: string;
     isActive: boolean;

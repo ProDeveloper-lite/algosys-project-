@@ -5,7 +5,6 @@ import { RouteList } from './routing/quiz.routing';
 import { QuizRoutingService } from './routing/quiz-routing.service';
 import { QuizDetailListComponent } from './quiz-detail-list/quiz-detail-list.component';
 import { QuizOptionsComponent } from './quiz-options/quiz-options.component';
-import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import { QuizDetailsComponent } from './quiz-details/quiz-details.component';
 import {QuizDetailScreenApiService} from './api-wrapper/quiz-detail-screen-api.service';
 
@@ -21,7 +20,6 @@ import {QuizDetailScreenApiService} from './api-wrapper/quiz-detail-screen-api.s
     declarations: [
         QuizDetailListComponent,
         QuizOptionsComponent,
-        QuestionDetailComponent,
         QuizDetailsComponent,
      ]
 })
