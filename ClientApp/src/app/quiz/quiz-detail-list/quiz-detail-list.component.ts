@@ -30,7 +30,7 @@ export class QuizDetailListComponent implements OnInit {
         this._onRowActionClick(data);
       });
   }
-  
+
   public ngOnInit(): void {
     this._getSubjects();
   }
@@ -45,7 +45,9 @@ export class QuizDetailListComponent implements OnInit {
   }
 
   private _getSubjects() {
-    this._subjectApiService.getAll().subscribe(data => this.state.subjectList = data);
+    this._subjectApiService
+      .getAll()
+      .subscribe(data => this.state.subjectList = data);
   }
 
   private _onRowActionClick(data: DataTableCustomEvent) {
