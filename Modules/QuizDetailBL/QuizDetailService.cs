@@ -24,9 +24,9 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
             return _mapper.Map<List<QuizDetailDtos.QuizDetailDto>>(quizs);
         }
 
-        public async Task<List<QuizDetailDtos.QuizDetailDto>> GetBySubject(QuizEnums.Subject subject)
+        public async Task<List<QuizDetailDtos.QuizDetailDto>> GetBySubject(int subjectId)
         {
-            var quizs = await _dbContext.QuizDetail.GetBySubject(subject);
+            var quizs = await _dbContext.QuizDetail.GetBySubject(subjectId);
             return _mapper.Map<List<QuizDetailDtos.QuizDetailDto>>(quizs);
         }
 
@@ -59,7 +59,6 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
         {
             var detail = await _dbContext.QuizDetail.GetByIdAsync(quizDetailId);
             _dbContext.QuizOptions.RemoveRange(detail.Options);
-            _dbContext.QuestionDetail.Remove(detail.Question);
             _dbContext.QuizDetail.Remove(detail);
             await _dbContext.SaveChangesAsync();
         }

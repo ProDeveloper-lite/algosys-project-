@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
+﻿
 namespace OnlineQuizWebApp.DataLayer.QuizDL
 {
     public static class QuizEnums
     {
-        public enum Subject
+        public enum Complexcity
         {
             Undefined,
-            English,
-            Maths,
-            History,
-            EVS,
-            Computer
+            Easy,
+            Medium,
+            Difficult,
         }
         public enum QuestionType
         {

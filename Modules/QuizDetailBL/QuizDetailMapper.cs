@@ -9,11 +9,9 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
     {
         public QuizDetailMapper()
         {
-            CreateMap<QuizDetail, QuizDetailDtos.QuizDetailDto>(MemberList.Destination)
-                    .ForMember(x => x.Actions, opt => opt.MapFrom(x => x.GetActions()));
+            CreateMap<QuizDetail, QuizDetailDtos.QuizDetailDto>(MemberList.Destination);
 
-            CreateMap<QuizDetailDtos.QuizDetailDto, QuizDetail>(MemberList.Source)
-                .ForSourceMember(x => x.Actions, opt => opt.DoNotValidate());
+            CreateMap<QuizDetailDtos.QuizDetailDto, QuizDetail>(MemberList.Source);
         }
     }
 }

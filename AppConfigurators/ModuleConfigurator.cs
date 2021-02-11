@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using OnlineQuizWebApp.Modules.QuizDetailBL;
 using OnlineQuizWebApp.Modules.QuizOptionBL;
+using OnlineQuizWebApp.Modules.SubjectDetailBL;
 
 namespace OnlineQuizWebApp.AppConfigurators
 {
@@ -16,6 +17,7 @@ namespace OnlineQuizWebApp.AppConfigurators
         {
             services.AddTransient<IQuizDetailService, QuizDetailService>();
             services.AddTransient<IQuizOptionsService, QuizOptionsService>();
+            services.AddTransient<ISubjectDetailService, SubjectDetailService>();
         }
     }
 }

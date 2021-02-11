@@ -10,12 +10,13 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
         public class QuizDetailDto
         {
             public int Id { get; set; }
-            public QuizEnums.Subject Subject { get; set; }
-            public int Complexcity { get; set; }
-            public string Topic { get; set; }
+            public int SubjectId { get; set; }
+            public QuizEnums.Complexcity Complexcity { get; set; }
+            public List<string> Topic { get; set; }
+            public QuizEnums.QuestionType Type { get; set; }
+            public string QuestionText { get; set; }
+            public int? CorrectAnswerId { get; set; }
             public bool IsActive { get; set; }
-            public int? QuestionId { get; set; }
-            public List<string> Actions { get; set; }
         }
     }
 }

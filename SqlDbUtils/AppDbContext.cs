@@ -19,7 +19,7 @@ namespace OnlineQuizWebApp.SqlDbUtils
         }
 
         public DbSet<QuizDetail> QuizDetail { get; set; }
-        public DbSet<QuestionDetail> QuestionDetail { get; set; }
+        public DbSet<SubjectDetail> SubjectDetail { get; set; }
         public DbSet<QuizOptions> QuizOptions { get; set; }
 
 

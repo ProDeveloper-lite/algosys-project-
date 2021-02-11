@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Innofactor.EfCoreJsonValueConverter;
 
 namespace OnlineQuizWebApp.DataLayer.QuizDL
 {
@@ -10,17 +7,19 @@ namespace OnlineQuizWebApp.DataLayer.QuizDL
     {
         public static void QuizEfMapper(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<QuizDetail>(b =>
+            {
+                b.Property(x => x.Topic).IsRequired().HasJsonValueConversion();
+            });
+
             modelBuilder.Entity<QuizOptions>(b =>
             {
                 b.HasIndex(x => x.QuizDetailId);
             });
 
-            modelBuilder.Entity<QuestionDetail>(b =>
+            modelBuilder.Entity<SubjectDetail>(b =>
             {
-                b.HasOne(x => x.QuizDetail)
-                    .WithOne(x => x.Question)
-                    .HasForeignKey<QuestionDetail>(x => x.QuizDetailId)
-                    .OnDelete(DeleteBehavior.NoAction);
+                b.HasIndex(x => x.Name).IsUnique();
             });
         }
     }

@@ -11,15 +11,14 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
         public static async Task<QuizDetail> GetByIdAsync(this DbSet<QuizDetail> fdSet, int quizId)
         {
             return await fdSet
-                .Include(x => x.Question)
                 .Include(x => x.Options)
                 .SingleAsync(x => x.Id == quizId);
         }
 
-        public static async Task<List<QuizDetail>> GetBySubject(this DbSet<QuizDetail> fdSet, QuizEnums.Subject subject)
+        public static async Task<List<QuizDetail>> GetBySubject(this DbSet<QuizDetail> fdSet, int subjectId)
         {
             return await fdSet
-                .Where(x => x.Subject == subject)
+                .Where(x => x.SubjectId == subjectId)
                 .ToListAsync();
         }
     }
