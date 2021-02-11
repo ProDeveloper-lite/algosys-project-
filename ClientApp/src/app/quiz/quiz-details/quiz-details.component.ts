@@ -12,16 +12,11 @@ export class QuizDetailsComponent implements OnInit {
   public state = {
     form : new FormGroup({}),
     model: {},
-    options: {
-      formState: {
-        awesomeIsForced: false
-      } as FormlyFormOptions
-    },
+    options: {} as FormlyFormOptions,
      disable : false,
      fields: [] as FormlyFieldConfig[]
   }
 
-  
   constructor(private _screeApi: QuizDetailScreenApiService) {
     this.state.fields = _screeApi.getQuizDetailScreen();
   }
@@ -30,14 +25,13 @@ export class QuizDetailsComponent implements OnInit {
   }
 
   public onReset() {
-    // this.state.options.resetModel();
+    this.state.options.resetModel();
     console.log("Form Reset")
   }
 
   public onSubmit() {
     console.log(this.state.model)
-    alert("Added Succesfully");
-    // this.state.options.resetModel();
+    this.state.options.resetModel();
   }
 
   public disabled() {

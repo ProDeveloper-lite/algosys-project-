@@ -1,6 +1,6 @@
 <div fxLayout="row">
-    <form  [disabled]="state.disable" [formGroup]="state.form" (ngSubmit)="onSubmit(state.model)">
-        <formly-form  [form]="state.form" [fields]="state.fields" [model]="state.model" [options] = "state.options"></formly-form>
+    <form   [formGroup]="state.form" (ngSubmit)="onSubmit()">
+        <formly-form [form]="state.form" [fields]="state.fields" [model]="state.model" [options] = "state.options"></formly-form>
         <div class="col-sm-4">
             <button type="submit" class="btn btn-submit-button">Create</button>
             <button type="button" (click) = "onReset()">Reset</button>
