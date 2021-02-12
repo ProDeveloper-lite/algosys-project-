@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {QuizDetailApiService,QuizDetailDtos } from '@module/serverside';
-import { Subject } from '../serverside/dto/QuizEnums.dto';
+import { Complexcity,QuestionType } from '../serverside/dto/QuizEnums.dto';
 
 @Component({
   selector: 'app-home',

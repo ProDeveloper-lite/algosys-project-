@@ -1,14 +1,13 @@
-export enum Subject{
+export enum Complexcity {
     Undefined = 'Undefined',
-    English = 'English',
-    Maths = 'Maths',
-    History = 'History',
-    EVS = 'EVS',
-    Computer = 'Computer'
+    Easy = 'Easy',
+    Medium = 'Medium',
+    Difficult = 'Difficult',
 }
 
-export enum QuestionType{
+
+export enum QuestionType {
     Undefined = 'Undefined',
     SingleCorrect = 'SingleCorrect',
-    MultiCorrect = 'MultiCorrect'
+    MultiCorrect = 'MultiCorrect',
 }
