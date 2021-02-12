@@ -1,9 +1,11 @@
+import {QuestionType} from './QuizEnums.dto';
 export interface QuizDetailDto {
     id: number;
     subjectId: number;
-    complexcity: number;
-    topic: string;
+    complexcity: string;
+    topic: string[];
     isActive: boolean;
-    questionId: number;
-    actions: string[];
+    correctAnswerId: number;
+    type: QuestionType;
+    questionText: string;
 }
