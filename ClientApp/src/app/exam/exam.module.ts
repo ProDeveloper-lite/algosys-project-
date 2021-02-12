@@ -5,7 +5,6 @@ import { RouteList } from './routing/exam.routing';
 import { ExamRoutingService } from './routing/exam-routing.service';
 import { ExamDetailComponent } from './exam-detail/exam-detail.component';
 
-
 @NgModule({
     imports: [
         RouterModule.forChild(RouteList()),
