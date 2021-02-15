@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineQuizWebApp.DataLayer.QuizDL;
 using OnlineQuizWebApp.Modules.QuizDetailBL;
 using OnlineQuizWebApp.Utilities;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -29,11 +27,10 @@ namespace OnlineQuizWebApp.Controllers
             return await _service.GetById(quizId);
         }
 
-        [HttpGet("getSubject/{value}")]
-        public async Task<List<QuizDetailDtos.QuizDetailDto>> GetBySubject(string value)
+        [HttpGet("getSubject/{subjectId}")]
+        public async Task<List<QuizDetailDtos.QuizDetailDto>> GetBySubject(int subjectId)
         {
-            var selectedSubject = (QuizEnums.Subject)Enum.Parse(typeof(QuizEnums.Subject), value, true);
-            return await _service.GetBySubject(selectedSubject);
+            return await _service.GetBySubject(subjectId);
         }
     }
 }

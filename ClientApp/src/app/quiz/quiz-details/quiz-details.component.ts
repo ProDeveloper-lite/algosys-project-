@@ -17,7 +17,6 @@ export class QuizDetailsComponent implements OnInit {
      fields: [] as FormlyFieldConfig[]
   }
 
-  
   constructor(private _screeApi: QuizDetailScreenApiService) {
     this.state.fields = _screeApi.getQuizDetailScreen();
   }
@@ -32,7 +31,10 @@ export class QuizDetailsComponent implements OnInit {
 
   public onSubmit() {
     console.log(this.state.model)
+<<<<<<< HEAD
     alert("Added Succesfully");
+=======
+>>>>>>> e71176d698ce178d82a1e25a11740e5fb67f063a
     this.state.options.resetModel();
   }
 

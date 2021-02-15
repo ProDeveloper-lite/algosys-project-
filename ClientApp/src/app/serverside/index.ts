@@ -6,14 +6,12 @@ export { QuizDetailDtos };
 import * as QuizOptionsDtos from './dto/QuizOptionsDtos.dto';
 export { QuizOptionsDtos };
 
-import * as QuestionDetailDtos from './dto/QuestionDetailDtos.dto';
-export { QuestionDetailDtos };
+import * as SubjectDetailDtos from './dto/SubjectDetailDtos.dto';
+export { SubjectDetailDtos };
 
 import * as QuizEnums from './dto/QuizEnums.dto';
 export { QuizEnums };
-// import * as DataTableDtos from './dto/DataTableDtos.dto';
-// export { DataTableDtos }
 
 export * from './api/quiz-detail-api.service';
 export * from './api/quiz-option-api.service';
-export * from './api/question-detail-api.service';
+export * from './api/subject-detail-api.service';

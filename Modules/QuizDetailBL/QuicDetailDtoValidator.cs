@@ -11,9 +11,9 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
             RuleSet(FluentValidationExtensions.Create, () => RuleFor(x => x.Id).Empty());
             RuleSet(FluentValidationExtensions.Update, () => RuleFor(x => x.Id).NotEmpty());
 
-            RuleFor(x => x.Subject)
-                .Must(x => x != QuizEnums.Subject.Undefined)
-                .WithMessage("Subject is mandatory");
+            //RuleFor(x => x.Subject)
+            //    .Must(x => x != QuizEnums.Subject.Undefined)
+            //    .WithMessage("Subject is mandatory");
         }
     }
 }

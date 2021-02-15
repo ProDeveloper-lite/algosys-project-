@@ -1,6 +1,5 @@
 import { Route } from '@angular/router';
 import { CustomRoute } from '@module/shared';
-import { QuestionDetailComponent } from '../question-detail/question-detail.component';
 import { QuizDetailListComponent } from '../quiz-detail-list/quiz-detail-list.component';
 import { QuizDetailsComponent } from '../quiz-details/quiz-details.component';
 import { QuizOptionsComponent } from '../quiz-options/quiz-options.component';
@@ -25,6 +24,7 @@ export function RouteList(): Route[] {
             }
         },
         {
+<<<<<<< HEAD
             path: 'Question/:id',
             component: QuestionDetailComponent,
             data:{
@@ -41,6 +41,8 @@ export function RouteList(): Route[] {
             }
         },
         {
+=======
+>>>>>>> e71176d698ce178d82a1e25a11740e5fb67f063a
             path: 'quiz-detail/:id',
             component: QuizDetailsComponent,
         }

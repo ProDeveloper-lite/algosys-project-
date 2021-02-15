@@ -13,6 +13,7 @@ import { CoreModule } from '@module/core';
 import {RouteList, AppComponent } from '@module/app';
 import { ServersideModule } from '@module/serverside';
 import { HomeComponent } from './home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     ServersideModule,
     FlexLayoutModule,
     FormlyModule,
-    RouterModule.forRoot(RouteList) // this MUST be last
+    RouterModule.forRoot(RouteList),
+    BrowserAnimationsModule // this MUST be last
   ],
   declarations: [
     AppComponent,

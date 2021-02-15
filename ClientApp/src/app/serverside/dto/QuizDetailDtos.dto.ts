@@ -1,11 +1,11 @@
-import { Subject } from "./QuizEnums.dto";
-
+import {QuestionType} from './QuizEnums.dto';
 export interface QuizDetailDto {
     id: number;
-    subject: Subject;
-    complexcity: number;
-    topic: string;
+    subjectId: number;
+    complexcity: string;
+    topic: string[];
     isActive: boolean;
-    questionId: number;
-    actions: string[];
+    correctAnswerId: number;
+    type: QuestionType;
+    questionText: string;
 }
