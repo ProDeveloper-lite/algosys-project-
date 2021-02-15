@@ -10,11 +10,11 @@ import { FormGroup } from '@angular/forms'
 })
 export class QuizDetailsComponent implements OnInit {
   public state = {
-    form : new FormGroup({}),
+    form: new FormGroup({}),
     model: {},
     options: {} as FormlyFormOptions,
-     disable : false,
-     fields: [] as FormlyFieldConfig[]
+    disable: false,
+    fields: [] as FormlyFieldConfig[]
   }
 
   constructor(private _screeApi: QuizDetailScreenApiService) {
@@ -30,12 +30,11 @@ export class QuizDetailsComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.state.model)
-<<<<<<< HEAD
-    alert("Added Succesfully");
-=======
->>>>>>> e71176d698ce178d82a1e25a11740e5fb67f063a
+    console.log(this.state.model);
     this.state.options.resetModel();
+  }
+
+  public disabled() {
   }
 
 }
