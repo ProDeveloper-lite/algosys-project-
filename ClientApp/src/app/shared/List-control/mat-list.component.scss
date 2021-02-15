@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+
+mat-list-item.selected {
+  background-color: rgba(228, 233, 237, 1);
+}
+
+mat-list {
+  height: 60vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+mat-list-item {
+  cursor: pointer;
+}
+
+.title {
+  padding: 5px;
+  margin: 0 !important;
+}

@@ -7,6 +7,7 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { NgMaterialModule } from '@module/material';
 import { ServersideModule } from '@module/serverside';
 import { DataTableComponent } from './data-table/data-table.component';
+import { MatListComponent } from './List-control/mat-list.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { DataTableComponent } from './data-table/data-table.component';
     ],
     providers: [],
     declarations: [
-        DataTableComponent
+        DataTableComponent,
+        MatListComponent
     ],
     exports: [
         CommonModule,
@@ -34,7 +36,8 @@ import { DataTableComponent } from './data-table/data-table.component';
         FormlyMaterialModule,
         FormlyModule,
         ServersideModule,
-        DataTableComponent
+        DataTableComponent,
+        MatListComponent
     ]
 })
 export class SharedModule { }
