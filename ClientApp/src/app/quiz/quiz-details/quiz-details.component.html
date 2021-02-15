@@ -1,11 +1,24 @@
-<div fxLayout="row">
-    <form   [formGroup]="state.form" (ngSubmit)="onSubmit()">
-        <formly-form [form]="state.form" [fields]="state.fields" [model]="state.model" [options] = "state.options"></formly-form>
-        <div class="col-sm-4">
-            <button type="submit" class="btn btn-submit-button">Create</button>
-            <button type="button" (click) = "onReset()">Reset</button>
-            <button type="button" (click) = "disabled()">Clear</button>
+<mat-tab-group>
+    <mat-tab label="Detail">
+        <mat-toolbar class="button-group">
+            <button mat-raised-button>Add</button>
+        </mat-toolbar>
+        <div fxLayout="row">
+            <form [formGroup]="state.form" (ngSubmit)="onSubmit()">
+                <formly-form [form]="state.form" [fields]="state.fields" [model]="state.model"
+                    [options]="state.options"></formly-form>
+                <div class="col-sm-4">
+                    <div class = "example-button-row">
+                        <button mat-raised-button type="submit">Create</button>
+                        <button mat-raised-button type="button" (click)="onReset()">Reset</button>
+                        <button mat-raised-button type="button" (click)="disabled()">Clear</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        
-    </form>
-</div>
+    
+    </mat-tab>
+    <mat-tab label="Options">
+
+    </mat-tab>
+</mat-tab-group>
