@@ -14,7 +14,7 @@ export class SubjectDetailScreenApiService {
         key: 'name',
         type: 'input',
         templateOptions: {
-          type: 'number',
+          type: 'text',
           label: 'Name of Subject',
           required: true,
           appearance: 'outline',
