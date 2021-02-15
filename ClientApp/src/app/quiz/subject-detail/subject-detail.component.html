@@ -1,0 +1,18 @@
+<div fxLayout="row">
+    <form [formGroup]="state.form" (ngSubmit)="onSubmit()">
+        <formly-form [form]="state.form" [fields]="state.fields" [model]="state.model" [options]="state.options">
+        </formly-form>
+        <div class="col-sm-4">
+            <button type="submit">Create</button>
+            <button type="button">Edit</button>
+            <button type="button" (click)="onReset()">Reset</button>
+            <button type="button" >Cancel</button>
+            <button type="button" (click)="onSubmit()" >submit</button>
+            <button type="button">Delete</button>
+
+        </div>
+
+    </form>
+</div>
+
+||create/Edit/cancel/Reset/Delete||
