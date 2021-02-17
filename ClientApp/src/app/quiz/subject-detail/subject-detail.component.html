@@ -1,17 +1,28 @@
-<div fxLayout="row">
-    <form [formGroup]="state.form" (ngSubmit)="onSubmit()">
-        <formly-form [form]="state.form" [fields]="state.fields" [model]="state.model" [options]="state.options">
-        </formly-form>
-        <div class="col-sm-4">
-            <button type="submit">Create</button>
-            <button type="button">Edit</button>
-            <button type="button" (click)="onReset()">Reset</button>
-            <button type="button" >Cancel</button>
-            <button type="button" (click)="onSubmit()" >submit</button>
-            <button type="button">Delete</button>
-
-        </div>
-
-    </form>
+<div fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="30%">
+        <app-mat-list [config]="state.listConfig" [list]="state.subjectList"></app-mat-list>
+    </div>
+    <div fxFlex="70%">
+        <mat-toolbar class="button-group">
+            <button mat-raised-button (click)="addSubject()">Add New Subject</button>
+            <ng-container *ngIf=" state.selectedSubject">
+                <button  mat-raised-button (click)="showDeleteSubjectDialog()">Delete
+                    Master</button>
+            </ng-container>
+        </mat-toolbar>
+        <mat-card *ngIf="state.showForm">
+            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+                <div fxFlex="30%">
+                    <mat-form-field appearance="outline">
+                        <input matInput [formControl]="state.newSubjectControl" type="text">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="10%">
+                    <button mat-button mat-stroked-button (click)="saveSubject(state.newSubjectControl.value)"
+                        [disabled]="state.newSubjectControl.invalid">Add
+                    </button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
 </div>
-
