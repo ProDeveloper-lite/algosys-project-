@@ -15,13 +15,13 @@ export class SubjectDetailComponent implements OnInit, OnDestroy {
 
   public state = {
     subjectList: [] as ListType.ListItem[],
+    newSubjectControl!: {} as FormControl,
+    selectedSubject: undefined as (ListType.ListItem | undefined),
+    showForm: false,
     listConfig: {
       title: 'Subject List',
       events: new EventEmitter<MatListEvent<IMatListItem>>()
     } as IMatListConfig<IMatListItem>,
-    newSubjectControl!: {} as FormControl,
-    selectedSubject: undefined as (ListType.ListItem | undefined),
-    showForm: false
   };
 
   private _subscriptions: Subscription[] = [];
@@ -57,6 +57,10 @@ export class SubjectDetailComponent implements OnInit, OnDestroy {
 
   public showDeleteSubjectDialog() {
     this._dialogService.confirmDelete(() => this._deleteSubject());
+  }
+
+  public cancel() {
+    this.state.showForm = false;
   }
 
   private _selected(data: MatListEvent<ListType.ListItem>) {
