@@ -1,29 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
-import {QuizEnums} from '@module/serverside'
-
+import { Component, OnInit } from "@angular/core";
+import { SubjectDetailDtos, SubjectDetailApiService } from "@module/serverside";
 @Component({
-  selector: 'app-exam-detail',
-  templateUrl: './exam-detail.component.html',
-  styleUrls: ['./exam-detail.component.css']
+  selector: "app-exam-detail",
+  templateUrl: "./exam-detail.component.html",
+  styleUrls: ["./exam-detail.component.scss"],
 })
 export class ExamDetailComponent implements OnInit {
-
   public state = {
-    subjectList: Object.values(QuizEnums.Subject) as QuizEnums.Subject[],
-    selectedSubject: undefined as QuizEnums.Subject | undefined,
-    subjectselect:false as boolean
+    subjectList: [] as SubjectDetailDtos.SubjectDetailDto[],
+    selectedSubject: undefined as ( number | undefined),
+    subjectselect: false,
+  };
+
+  constructor(private _subjectApi: SubjectDetailApiService) {}
+  public ngOnInit(): void {
+    this._getSubjectList();
   }
-  
-  constructor() { }
 
   public getBySubject() {
-    console.log("Selected Subject is "+this.state.selectedSubject);
-    this.state.subjectselect = true
-
+    console.log(this.state.selectedSubject);
+    this.state.subjectselect = true;
   }
 
-  ngOnInit(): void {
+  private _getSubjectList() {
+    this._subjectApi
+      .getAll()
+      .subscribe((data) => (this.state.subjectList = data));
   }
 
+  public startExam() {}
 }

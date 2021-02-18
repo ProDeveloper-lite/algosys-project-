@@ -7,7 +7,6 @@ import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-subject-detail',
   templateUrl: './subject-detail.component.html',
-  styleUrls: ['./subject-detail.component.scss']
 })
 export class SubjectDetailComponent implements OnInit, OnDestroy {
 
@@ -21,7 +20,7 @@ export class SubjectDetailComponent implements OnInit, OnDestroy {
     listConfig: {
       title: 'Subject List',
       events: new EventEmitter<MatListEvent<IMatListItem>>()
-    } as IMatListConfig<IMatListItem>,
+    } as IMatListConfig<IMatListItem>
   };
 
   private _subscriptions: Subscription[] = [];
