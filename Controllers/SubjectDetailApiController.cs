@@ -17,9 +17,15 @@ namespace OnlineQuizWebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<List<ListType.ListItem>> GetAll()
+        public async Task<List<SubjectDetailDtos.SubjectDetailDto>> GetAll()
         {
             return await _service.GetAll();
+        }
+
+        [HttpGet("list")]
+        public async Task<List<ListType.ListItem>> GetAllForList()
+        {
+            return await _service.GetAllForList();
         }
 
         [HttpPut]

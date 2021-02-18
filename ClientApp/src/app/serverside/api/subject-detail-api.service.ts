@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { ListItem } from "../dto/ListType.dto";
-import { CreateSubjectDetailDto } from '../dto/SubjectDetailDtos.dto';
+import { CreateSubjectDetailDto, SubjectDetailDto } from '../dto/SubjectDetailDtos.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,14 @@ export class SubjectDetailApiService {
   constructor(private httpClient: HttpClient) { }
 
   private routeGetAll = () => `api/SubjectDetailApi`;
-  public getAll(): Observable<ListItem[]> {
+  public getAll(): Observable<SubjectDetailDto[]> {
     const url = this.routeGetAll();
+    return this.httpClient.get(url, undefined) as Observable<any>;
+  }
+
+  private routeGetAllForList = () => `api/SubjectDetailApi/list`;
+  public getAllForList(): Observable<ListItem[]> {
+    const url = this.routeGetAllForList();
     return this.httpClient.get(url, undefined) as Observable<any>;
   }
 

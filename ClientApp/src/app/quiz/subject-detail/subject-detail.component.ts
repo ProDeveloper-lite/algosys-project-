@@ -81,7 +81,7 @@ export class SubjectDetailComponent implements OnInit, OnDestroy {
 
   private _getSubjectList() {
     this._subjectApi
-      .getAll()
+      .getAllForList()
       .subscribe(data => this.state.subjectList = data);
   }
 

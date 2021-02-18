@@ -20,10 +20,16 @@ namespace OnlineQuizWebApp.Modules.SubjectDetailBL
             _dbContext = dbContext;
             _mapper = mapper;
         }
-        public async Task<List<ListType.ListItem>> GetAll()
+        public async Task<List<ListType.ListItem>> GetAllForList()
         {
             var sub = await _dbContext.SubjectDetail.ToListAsync();
             return _mapper.Map<List<ListType.ListItem>>(sub);
+        }
+
+        public async Task<List<SubjectDetailDtos.SubjectDetailDto>> GetAll()
+        {
+            var sub = await _dbContext.SubjectDetail.ToListAsync();
+            return _mapper.Map<List<SubjectDetailDtos.SubjectDetailDto>>(sub);
         }
 
         public async Task<ListType.ListItem> Create(SubjectDetailDtos.CreateSubjectDetailDto dto)
