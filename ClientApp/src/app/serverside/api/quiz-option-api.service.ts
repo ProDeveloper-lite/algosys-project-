@@ -8,8 +8,6 @@ import { QuizOptions } from '../dto/QuizOptionsDtos.dto';
 })
 export class QuizOptionApiService {
 
-  // formData : QuizOptions   //A T YV
-
   constructor(private http:HttpClient) { }
 
     private routeGetAll = () => `api/QuizOptionApi`;

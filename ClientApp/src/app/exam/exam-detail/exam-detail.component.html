@@ -2,7 +2,7 @@
     <mat-form-field fxFlex='40%' appearance="outline">
         <mat-label>Select Subject</mat-label>
         <mat-select [(value)]="state.selectedSubject" (selectionChange)="getBySubject()">
-            <mat-option *ngFor='let item of state.subjectList' value="{{item}}">{{item}}</mat-option>
+            <mat-option *ngFor='let item of state.subjectList' value="{{item.id}}">{{item.name}}</mat-option>
         </mat-select>
     </mat-form-field>
 </div>

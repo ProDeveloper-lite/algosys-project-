@@ -11,7 +11,7 @@ import { QuizRoutingService } from '../routing/quiz-routing.service';
 export class QuizDetailListComponent implements OnInit {
   public state = {
     tableConfig: {
-      titleColumn: ['complexcity', 'topic', 'type', 'QuestionText', 'isActive'],
+      titleColumn: ['complexcity', 'topic', 'type', 'questionText', 'isActive'],
       eventFromTable: new EventEmitter<DataTableCustomEvent>()
     } as DataTableExtendedConfig,
     tableData: [] as QuizDetailDtos.QuizDetailDto[],

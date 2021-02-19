@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import {QuizEnums} from '@module/serverside'
+import {SubjectDetailDtos,SubjectDetailApiService} from '@module/serverside';
 
 @Component({
   selector: 'app-exam-detail',
@@ -10,12 +10,12 @@ import {QuizEnums} from '@module/serverside'
 export class ExamDetailComponent implements OnInit {
 
   public state = {
-    subjectList: Object.values(QuizEnums.Subject) as QuizEnums.Subject[],
-    selectedSubject: undefined as QuizEnums.Subject | undefined,
+    selectedSubject: undefined as number | undefined,
+    subjectList: [] as SubjectDetailDtos.SubjectDetailDto[],
     subjectselect:false as boolean
   }
   
-  constructor() { }
+  constructor(private _subjectApiService: SubjectDetailApiService) { }
 
   public getBySubject() {
     console.log("Selected Subject is "+this.state.selectedSubject);
@@ -24,6 +24,13 @@ export class ExamDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._getSubjects();
+  }
+
+  private _getSubjects() {
+    this._subjectApiService
+      .getAll()
+      .subscribe(data => this.state.subjectList = data);
   }
 
 }

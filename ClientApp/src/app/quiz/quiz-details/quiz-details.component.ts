@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { QuizDetailScreenApiService } from '../api-wrapper/quiz-detail-screen-api.service';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms'
+import { DataTableCustomEvent, DataTableExtendedConfig } from '@module/shared';
+import { QuizOptionApiService, QuizOptionsDtos } from '@module/serverside'
 
 @Component({
   selector: 'app-quiz-details',
@@ -10,18 +12,31 @@ import { FormGroup } from '@angular/forms'
 })
 export class QuizDetailsComponent implements OnInit {
   public state = {
-    form : new FormGroup({}),
+    tableConfig: {
+      titleColumn: ['Id', 'Options', 'Answer', 'QuizDetailId'],
+      eventFromTable: new EventEmitter<DataTableCustomEvent>()
+    } as DataTableExtendedConfig,
+    tableData: [] as QuizOptionsDtos.QuizOptions[],
+    form: new FormGroup({}),
     model: {},
     options: {} as FormlyFormOptions,
-     disable : false,
-     fields: [] as FormlyFieldConfig[]
+    fields: [] as FormlyFieldConfig[]
   }
 
-  constructor(private _screeApi: QuizDetailScreenApiService) {
+  constructor(
+    private _screeApi: QuizDetailScreenApiService,
+    private _QuizOptionsApi: QuizOptionApiService) {
     this.state.fields = _screeApi.getQuizDetailScreen();
   }
 
   public ngOnInit(): void {
+    this._getQuizOptions();
+  }
+  private _getQuizOptions() {
+    this._QuizOptionsApi.getAll()
+      .subscribe(data => this.state.tableData = data);
+    console.log(this.state.tableData)
+    console.log("Quiz Options")
   }
 
   public onReset() {
@@ -35,7 +50,7 @@ export class QuizDetailsComponent implements OnInit {
   }
 
   public disabled() {
-    this.state.disable = true;
+    this.state.form.disabled
     console.log("Fields are disablred")
   }
 }

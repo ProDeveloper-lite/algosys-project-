@@ -5,6 +5,7 @@ namespace OnlineQuizWebApp.DataLayer.QuizDL
     {
         public int Id { get; set; }
         public string Option { get; set; }
+        
 
         // foreign keys
         public int QuizDetailId { get; set; }

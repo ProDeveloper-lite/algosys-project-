@@ -8,7 +8,7 @@
                 <formly-form [form]="state.form" [fields]="state.fields" [model]="state.model"
                     [options]="state.options"></formly-form>
                 <div class="col-sm-4">
-                    <div class = "example-button-row">
+                    <div class="example-button-row">
                         <button mat-raised-button type="submit">Create</button>
                         <button mat-raised-button type="button" (click)="onReset()">Reset</button>
                         <button mat-raised-button type="button" (click)="disabled()">Clear</button>
@@ -16,9 +16,8 @@
                 </div>
             </form>
         </div>
-    
     </mat-tab>
     <mat-tab label="Options">
-
+<app-data-table [data] = "state.tableData" [config] = "state.tableConfig"></app-data-table>
     </mat-tab>
 </mat-tab-group>
