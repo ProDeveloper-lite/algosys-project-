@@ -10,5 +10,11 @@ namespace OnlineQuizWebApp.Modules.SubjectDetailBL
             public int Id { get; set; }
             public string Name { get; set; }
         }
+
+        [PublicAPI]
+        public class CreateSubjectDetailDto
+        {
+            public string Name { get; set; }
+        }
     }
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormlyModule } from '@ngx-formly/core';
@@ -10,10 +11,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from '@module/core';
 
-import {RouteList, AppComponent } from '@module/app';
+import { RouteList, AppComponent } from '@module/app';
 import { ServersideModule } from '@module/serverside';
 import { HomeComponent } from './home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -26,8 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ServersideModule,
     FlexLayoutModule,
     FormlyModule,
-    RouterModule.forRoot(RouteList),
-    BrowserAnimationsModule // this MUST be last
+    BrowserAnimationsModule,
+    RouterModule.forRoot(RouteList),// this MUST be last
   ],
   declarations: [
     AppComponent,
@@ -36,11 +36,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     Location,
     { provide: LocationStrategy, useClass: PathLocationStrategy }
-],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor() {
     console.log('app module loaded');
+  }
 }
- }

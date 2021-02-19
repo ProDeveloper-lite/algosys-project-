@@ -45,7 +45,7 @@ export class QuizDetailsComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.state.model)
+    console.log(this.state.model);
     this.state.options.resetModel();
   }
 
@@ -53,4 +53,5 @@ export class QuizDetailsComponent implements OnInit {
     this.state.form.disabled
     console.log("Fields are disablred")
   }
+
 }

@@ -1,36 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
-import {SubjectDetailDtos,SubjectDetailApiService} from '@module/serverside';
-
+import { Component, OnInit } from "@angular/core";
+import { SubjectDetailDtos, SubjectDetailApiService } from "@module/serverside";
 @Component({
-  selector: 'app-exam-detail',
-  templateUrl: './exam-detail.component.html',
-  styleUrls: ['./exam-detail.component.css']
+  selector: "app-exam-detail",
+  templateUrl: "./exam-detail.component.html",
+  styleUrls: ["./exam-detail.component.scss"],
 })
 export class ExamDetailComponent implements OnInit {
-
   public state = {
-    selectedSubject: undefined as number | undefined,
     subjectList: [] as SubjectDetailDtos.SubjectDetailDto[],
-    subjectselect:false as boolean
+    selectedSubject: undefined as ( number | undefined),
+    subjectselect: false,
+  };
+
+  constructor(private _subjectApi: SubjectDetailApiService) {}
+  public ngOnInit(): void {
+    this._getSubjectList();
   }
-  
-  constructor(private _subjectApiService: SubjectDetailApiService) { }
 
   public getBySubject() {
-    console.log("Selected Subject is "+this.state.selectedSubject);
-    this.state.subjectselect = true
-
+    console.log(this.state.selectedSubject);
+    this.state.subjectselect = true;
   }
 
-  ngOnInit(): void {
-    this._getSubjects();
-  }
-
-  private _getSubjects() {
-    this._subjectApiService
+  private _getSubjectList() {
+    this._subjectApi
       .getAll()
-      .subscribe(data => this.state.subjectList = data);
+      .subscribe((data) => (this.state.subjectList = data));
   }
 
+  public startExam() {}
 }

@@ -2,7 +2,7 @@
     <mat-form-field fxFlex='40%' appearance="outline">
         <mat-label>Select Subject</mat-label>
         <mat-select [(value)]="state.selectedSubject" (selectionChange)="getBySubject()">
-            <mat-option *ngFor='let item of state.subjectList' value="{{item.id}}">{{item.name}}</mat-option>
+            <mat-option *ngFor='let item of state.subjectList' value={{item.id}}>{{item.name}}</mat-option>
         </mat-select>
     </mat-form-field>
 </div>
@@ -15,11 +15,12 @@
             <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
+            <!--TODO: fetch instructions from service not hardcode -->
             <li> <b>General information:</b>
                 <ol>The examination will comprise of Objective type Multiple Choice Questions (MCQs)
                 </ol>
                 <ol>
-                     All questions are compulsory and each carries One mark.
+                    All questions are compulsory and each carries One mark.
                 </ol>
                 <ol>
                     The total number of questions, duration of examination, will be different based on
@@ -29,15 +30,14 @@
                     The Subjects or topics covered in the exam will be as per the Syllabus.
                 </ol>
                 <ol>
-                     There will be NO NEGATIVE MARKING for the wrong answers.
+                    There will be NO NEGATIVE MARKING for the wrong answers.
                 </ol>
-
             </li>
         </mat-card-content>
     </mat-card>
 </div><br><br>
 <div class="center">
     <div class="example-button-row">
-        <button mat-raised-button color="primary" >Start</button>
-      </div>
+        <button mat-raised-button color="primary" (click)="startExam()">Start</button>
+    </div>
 </div>
