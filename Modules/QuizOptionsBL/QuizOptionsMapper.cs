@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using OnlineQuizWebApp.DataLayer.QuizDL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using OnlineQuizWebApp.Modules.ModuleHelper;
+using System.Globalization;
 
 namespace OnlineQuizWebApp.Modules.QuizOptionsBL
 {
@@ -14,7 +12,10 @@ namespace OnlineQuizWebApp.Modules.QuizOptionsBL
             CreateMap<QuizOptions, QuizOptionsDtos.QuizOptionsDto>(MemberList.Destination);
 
             CreateMap<QuizOptionsDtos.QuizOptionsDto, QuizOptions>(MemberList.Source);
-
+            CreateMap<QuizOptionsDtos.createQuizOptions, QuizOptions>(MemberList.Source);
+            CreateMap<QuizOptions, ListType.ListItem>(MemberList.Destination)
+            .ForMember(x => x.Text, opt => opt.MapFrom(y => y.Option))
+            .ForMember(x => x.Value, opt => opt.MapFrom(y => y.Id.ToString(CultureInfo.InvariantCulture)));
         }
 
     }
