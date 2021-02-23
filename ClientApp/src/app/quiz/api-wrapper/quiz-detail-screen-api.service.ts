@@ -8,6 +8,7 @@ import { QuizEnums, SubjectDetailApiService, SubjectDetailDtos } from '@module/s
 export class QuizDetailScreenApiService {
 
   public state = {
+    //TODO : anjali ....change the name of variable
     options_sub: Object.values(QuizEnums.QuestionType) as QuizEnums.QuestionType[],
     options_complexity: Object.values(QuizEnums.Complexcity) as QuizEnums.Complexcity[]
   }
@@ -52,6 +53,7 @@ export class QuizDetailScreenApiService {
         }
       },
       {
+        //TODO sonu : use tags
         key: 'topic',
         type: 'input',
         templateOptions: {
@@ -59,16 +61,6 @@ export class QuizDetailScreenApiService {
           label: 'Topic',
           required: true,
           appearance: 'outline'
-        }
-      },
-      {
-        key: 'correctAnswerId',
-        type: 'input',
-        templateOptions: {
-          type: 'text',
-          label: 'Correct Answer Id',
-          required: true,
-          appearance: 'outline',
         }
       },
       {
@@ -90,7 +82,6 @@ export class QuizDetailScreenApiService {
           label: 'Question text',
           required: true,
           appearance: 'outline',
-
         }
       },
       {

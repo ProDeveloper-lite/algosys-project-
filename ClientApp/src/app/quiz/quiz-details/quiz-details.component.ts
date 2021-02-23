@@ -13,10 +13,11 @@ import {QuizDetailApiService} from '@module/serverside';
 })
 export class QuizDetailsComponent implements OnInit {
   public state = {
+    // TODO : change variable names 
     form: new FormGroup({}),
     model: {},
     options: {} as FormlyFormOptions,
-    disable: false,
+    disable: false, //remove this
     fields: [] as FormlyFieldConfig[],
     quizDetailId: undefined as number | undefined,
   };
@@ -54,20 +55,22 @@ export class QuizDetailsComponent implements OnInit {
       .subscribe((data) => (this.state.model = data));
   }
 
-  public onAddClick() {
-    
-    console.log("add click  " + this.state.quizDetailId);
+  public onAddClick() { 
+    // TODO : anjali: implement this
   }
 
   public onReset() {
     this.state.options.resetModel();
-    console.log("Form Reset");
   }
 
   public onSubmit() {
-    console.log(this.state.model);
+    //TODO anjali : use create method from apiService
     this.state.options.resetModel();
   }
 
-  public disabled() {}
+  //TODO anjali: update/ delete 
+
+  public disabled() {  }
+
+
 }
