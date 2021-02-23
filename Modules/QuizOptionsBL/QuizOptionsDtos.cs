@@ -13,7 +13,7 @@ namespace OnlineQuizWebApp.Modules.QuizOptionsBL
             public int Id { get; set; }
             public string Option { get; set; }
             public int QuizDetailId { get; set; }
-
+            public bool IsAnswer { get;  set; }
         }
         [PublicAPI]
         public class createQuizOptions

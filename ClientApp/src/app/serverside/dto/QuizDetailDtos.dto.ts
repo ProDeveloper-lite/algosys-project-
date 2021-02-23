@@ -5,7 +5,6 @@ export interface QuizDetailDto {
     complexcity: string;
     topic: string[];
     isActive: boolean;
-    correctAnswerId: number;
     type: QuestionType;
     questionText: string;
 }

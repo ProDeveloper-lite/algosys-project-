@@ -15,9 +15,6 @@ namespace OnlineQuizWebApp.DataLayer.QuizDL
         public int SubjectId { get; set; }
         public SubjectDetail Subject { get; set; }
 
-        public int? CorrectAnswerId { get; set; }
-        public QuizOptions CorrectAnswer { get; set; }
-        
         // foreign key - many side
         public ICollection<QuizOptions> Options { get; set; } = new List<QuizOptions>();
     }
