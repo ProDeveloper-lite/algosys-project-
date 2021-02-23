@@ -12,6 +12,9 @@ export { SubjectDetailDtos };
 import * as QuizEnums from './dto/QuizEnums.dto';
 export { QuizEnums };
 
+import * as ListType from './dto/ListType.dto';
+export { ListType };
+
 export * from './api/quiz-detail-api.service';
 export * from './api/quiz-option-api.service';
 export * from './api/subject-detail-api.service';

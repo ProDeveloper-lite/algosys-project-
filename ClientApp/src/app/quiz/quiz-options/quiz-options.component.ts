@@ -17,13 +17,12 @@ export class QuizOptionsComponent implements OnInit {
   constructor(private _quizOptionServive: QuizOptionApiService) { }
 
   public ngOnInit(): void {
-    this.config.titleColumn = ['id','option','answer','quizDetailId']
-  }
-  
-  public getdata(){
+    this.config.titleColumn = ['id','option','answer','quizDetailId'],
     this._quizOptionServive.getAll()
       .subscribe(data => this.quizOptions = data);
+      console.log(this.quizOptions);
   }
+  
 }
 
 

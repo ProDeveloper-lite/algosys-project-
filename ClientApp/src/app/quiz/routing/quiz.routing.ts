@@ -3,6 +3,7 @@ import { CustomRoute } from '@module/shared';
 import { QuizDetailListComponent } from '../quiz-detail-list/quiz-detail-list.component';
 import { QuizDetailsComponent } from '../quiz-details/quiz-details.component';
 import { QuizOptionsComponent } from '../quiz-options/quiz-options.component';
+import { SubjectDetailComponent } from '../subject-detail/subject-detail.component'
 
 export function RouteList(): Route[] {
     return [
@@ -17,8 +18,16 @@ export function RouteList(): Route[] {
         {
             path: 'option',
             component: QuizOptionsComponent,
-            data:{
-                title:'Quiz Options',
+            data: {
+                title: 'Quiz Options',
+                isMenu: true
+            }
+        },
+        {
+            path: 'subject-detail',
+            component: SubjectDetailComponent,
+            data: {
+                title: 'Subject Detail',
                 isMenu: true
             }
         },

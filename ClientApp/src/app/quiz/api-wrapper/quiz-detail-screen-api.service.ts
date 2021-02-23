@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { QuizEnums, SubjectDetailApiService, SubjectDetailDtos } from '@module/serverside'
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizDetailScreenApiService {
 
-  constructor() { }
+  public state = {
+    //TODO : anjali ....change the name of variable
+    options_sub: Object.values(QuizEnums.QuestionType) as QuizEnums.QuestionType[],
+    options_complexity: Object.values(QuizEnums.Complexcity) as QuizEnums.Complexcity[]
+  }
+
+  constructor(private _subject: SubjectDetailApiService) { }
 
   public getQuizDetailScreen() {
     const config: FormlyFieldConfig[] = [
@@ -19,20 +26,34 @@ export class QuizDetailScreenApiService {
           required: true,
           appearance: 'outline',
           disabled: true
-        },
+        }
+      },
+      {
+        key: 'subjectId',
+        type: 'select',
+        templateOptions: {
+          label: 'SubjectId',
+          required: true,
+          appearance: 'outline',
+          options: this._subject.getAll(),
+          valueProp: (x: SubjectDetailDtos.SubjectDetailDto) => x.id,
+          labelProp: (x: SubjectDetailDtos.SubjectDetailDto) => x.name,
+        }
       },
       {
         key: 'complexcity',
-        type: 'input',
+        type: 'select',
         templateOptions: {
-          type: 'number',
           label: 'Complexcity',
           required: true,
-          appearance: 'outline'
-        },
+          appearance: 'outline',
+          options: this.state.options_complexity,
+          valueProp: (x: string) => x,
+          labelProp: (x: string) => x,
+        }
       },
-      //TODO:Ganesh and Ankita :- add new field Select 
       {
+        //TODO sonu : use tags
         key: 'topic',
         type: 'input',
         templateOptions: {
@@ -40,7 +61,28 @@ export class QuizDetailScreenApiService {
           label: 'Topic',
           required: true,
           appearance: 'outline'
-        },
+        }
+      },
+      {
+        key: 'type',
+        type: 'select',
+        templateOptions: {
+          label: 'Question Type',
+          required: true,
+          appearance: 'outline',
+          options: this.state.options_sub,
+          valueProp: (x: string) => x,
+          labelProp: (x: string) => x
+        }
+      },
+      {
+        key: 'questionText',
+        type: 'input',
+        templateOptions: {
+          label: 'Question text',
+          required: true,
+          appearance: 'outline',
+        }
       },
       {
         key: 'isActive',
@@ -49,10 +91,10 @@ export class QuizDetailScreenApiService {
           label: 'Is Active',
           required: true,
           appearance: 'outline'
-        },
-      }
+        }
+      },
     ];
-
+    console.log(this.state.options_sub)
     return config;
   }
 }

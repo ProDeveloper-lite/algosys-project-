@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex="30%">
+        <app-mat-list [config]="state.listConfig" [list]="state.subjectList"></app-mat-list>
+    </div>
+    <div fxFlex="70%">
+        <mat-toolbar class="button-group">
+            <button mat-raised-button (click)="addSubject()">Add New Subject</button>
+            <ng-container *ngIf=" state.selectedSubject">
+                <button mat-raised-button (click)="showDeleteSubjectDialog()">Delete
+                    Master</button>
+            </ng-container>
+        </mat-toolbar>
+        <mat-card *ngIf="state.showForm">
+            <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+                <div fxFlex="30%">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Subject</mat-label>
+                        <input matInput [formControl]="state.newSubjectControl" type="text">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="20%" fxLayoutGap="5px">
+                    <button mat-button mat-stroked-button (click)="saveSubject(state.newSubjectControl.value)"
+                        [disabled]="state.newSubjectControl.invalid">Add
+                    </button>
+                    <button mat-button mat-stroked-button (click)="cancel()">Cancel</button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

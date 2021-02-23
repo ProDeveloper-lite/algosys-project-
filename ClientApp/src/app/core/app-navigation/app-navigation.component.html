@@ -4,8 +4,8 @@
             <h1 class="site-title" [routerLink]="['/']"> OnlineQuizApp </h1>
             <ng-container *ngFor="let menu of menuList">
                 <ng-container *ngIf="menu.SubmenuList.length">
-                    <button mat-button #moduleTrigger="matMenuTrigger" class="menu-parent"
-                        [matMenuTriggerFor]="module" (mouseenter)="moduleTrigger.openMenu()">{{menu.MenuTitle}}</button>
+                    <button mat-button #moduleTrigger="matMenuTrigger" class="menu-parent" [matMenuTriggerFor]="module"
+                        (mouseenter)="moduleTrigger.openMenu()">{{menu.MenuTitle}}</button>
                     <mat-menu #module="matMenu" [overlapTrigger]="false">
                         <div (mouseleave)="moduleTrigger.closeMenu()">
                             <ng-container *ngFor="let item of menu.SubmenuList">

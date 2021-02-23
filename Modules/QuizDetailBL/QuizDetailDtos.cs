@@ -15,7 +15,6 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
             public List<string> Topic { get; set; }
             public QuizEnums.QuestionType Type { get; set; }
             public string QuestionText { get; set; }
-            public int? CorrectAnswerId { get; set; }
             public bool IsActive { get; set; }
         }
     }

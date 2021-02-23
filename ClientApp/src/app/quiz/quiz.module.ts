@@ -7,6 +7,7 @@ import { QuizDetailListComponent } from './quiz-detail-list/quiz-detail-list.com
 import { QuizOptionsComponent } from './quiz-options/quiz-options.component';
 import { QuizDetailsComponent } from './quiz-details/quiz-details.component';
 import {QuizDetailScreenApiService} from './api-wrapper/quiz-detail-screen-api.service';
+import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 
 @NgModule({
     imports: [
@@ -15,12 +16,13 @@ import {QuizDetailScreenApiService} from './api-wrapper/quiz-detail-screen-api.s
     ],
     providers: [
         QuizRoutingService,
-        QuizDetailScreenApiService
+        QuizDetailScreenApiService,
     ],
     declarations: [
         QuizDetailListComponent,
         QuizOptionsComponent,
         QuizDetailsComponent,
+        SubjectDetailComponent,
      ]
 })
 export class QuizModule {

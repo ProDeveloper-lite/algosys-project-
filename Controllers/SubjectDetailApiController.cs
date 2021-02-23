@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineQuizWebApp.Modules.ModuleHelper;
 using OnlineQuizWebApp.Modules.SubjectDetailBL;
 using OnlineQuizWebApp.Utilities;
 using System.Collections.Generic;
@@ -19,6 +20,24 @@ namespace OnlineQuizWebApp.Controllers
         public async Task<List<SubjectDetailDtos.SubjectDetailDto>> GetAll()
         {
             return await _service.GetAll();
+        }
+
+        [HttpGet("list")]
+        public async Task<List<ListType.ListItem>> GetAllForList()
+        {
+            return await _service.GetAllForList();
+        }
+
+        [HttpPut]
+        public async Task<ListType.ListItem> Create(SubjectDetailDtos.CreateSubjectDetailDto dto)
+        {
+            return await _service.Create(dto);
+        }
+
+        [HttpPost("{subjectId}")]
+        public async Task Delete(int subjectId)
+        {
+            await _service.Delete(subjectId);
         }
     }
 }
