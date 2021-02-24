@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { SubjectDetailDtos, SubjectDetailApiService } from "@module/serverside";
+import { ExamScreenComponent } from '../exam-screen/exam-screen.component'
 @Component({
   selector: "app-exam-detail",
   templateUrl: "./exam-detail.component.html",
@@ -12,7 +14,10 @@ export class ExamDetailComponent implements OnInit {
     subjectselect: false,
   };
 
-  constructor(private _subjectApi: SubjectDetailApiService) {}
+  constructor(
+    private _subjectApi: SubjectDetailApiService,
+    public _dialog:MatDialog
+    ) {}
   public ngOnInit(): void {
     this._getSubjectList();
   }
@@ -28,5 +33,10 @@ export class ExamDetailComponent implements OnInit {
       .subscribe((data) => (this.state.subjectList = data));
   }
 
-  public startExam() {}
+  public startExam() {
+    const dialogref = this._dialog.open(ExamScreenComponent,{
+      width:'800px',
+      height:'800px'
+    })
+  }
 }
