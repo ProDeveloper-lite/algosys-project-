@@ -36,7 +36,7 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
             return _mapper.Map<QuizDetailDtos.QuizDetailDto>(quizDetail);
         }
 
-        public async Task<QuizDetailDtos.QuizDetailDto> Create(QuizDetailDtos.QuizDetailDto quizDetailDto)
+        public async Task<QuizDetailDtos.QuizDetailDto> Create(QuizDetailDtos.CreateQuizDetail quizDetailDto)
         {
             var quizDetail = _mapper.Map<QuizDetail>(quizDetailDto);
             quizDetail.IsActive = false;

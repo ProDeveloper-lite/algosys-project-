@@ -8,3 +8,11 @@ export interface QuizDetailDto {
     type: QuestionType;
     questionText: string;
 }
+export interface CreateQuizDetailDto {
+    subjectId: number;
+    complexcity: string;
+    topic: string[];
+    isActive: boolean;
+    type: QuestionType;
+    questionText: string;   
+}
