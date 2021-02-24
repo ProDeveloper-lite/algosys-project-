@@ -10,12 +10,9 @@ namespace OnlineQuizWebApp.Modules.QuizOptionsBL
         public QuizOptionsMapper()
         {
             CreateMap<QuizOptions, QuizOptionsDtos.QuizOptionsDto>(MemberList.Destination);
-
             CreateMap<QuizOptionsDtos.QuizOptionsDto, QuizOptions>(MemberList.Source);
-            CreateMap<QuizOptionsDtos.createQuizOptions, QuizOptions>(MemberList.Source);
-            CreateMap<QuizOptions, ListType.ListItem>(MemberList.Destination)
-            .ForMember(x => x.Text, opt => opt.MapFrom(y => y.Option))
-            .ForMember(x => x.Value, opt => opt.MapFrom(y => y.Id.ToString(CultureInfo.InvariantCulture)));
+
+            CreateMap<QuizOptionsDtos.CreateQuizOptions, QuizOptions>(MemberList.Source);
         }
 
     }

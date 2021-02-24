@@ -3,7 +3,8 @@ import { CustomRoute } from '@module/shared';
 import { QuizDetailListComponent } from '../quiz-detail-list/quiz-detail-list.component';
 import { QuizDetailsComponent } from '../quiz-details/quiz-details.component';
 import { QuizOptionsComponent } from '../quiz-options/quiz-options.component';
-import { SubjectDetailComponent } from '../subject-detail/subject-detail.component'
+import { SubjectDetailComponent } from '../subject-detail/subject-detail.component';
+import { QuizOptionsListComponent } from '../quiz-options-list/quiz-options-list.component'
 
 export function RouteList(): Route[] {
     return [
@@ -34,7 +35,12 @@ export function RouteList(): Route[] {
         {
             path: 'quiz-detail/:id',
             component: QuizDetailsComponent,
+        },
+        {
+            path: 'quizoptionslist',
+            component: QuizOptionsListComponent,
         }
+
 
     ] as CustomRoute[];
 }

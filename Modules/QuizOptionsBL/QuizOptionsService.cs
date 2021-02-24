@@ -1,33 +1,40 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using OnlineQuizWebApp.DataLayer.QuizDL;
-using OnlineQuizWebApp.Modules.QuizOptionBL;
+using OnlineQuizWebApp.Modules.ModuleHelper;
 using OnlineQuizWebApp.Modules.QuizOptionsBL;
 using OnlineQuizWebApp.SqlDbUtils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 namespace OnlineQuizWebApp.Modules.QuizOptionBL
 {
     public class QuizOptionsService : IQuizOptionsService
     {
         private readonly AppDbContext _dbContext;
-        public QuizOptionsService(AppDbContext dbContext)
+        private readonly IMapper _mapper;
+        public QuizOptionsService(AppDbContext dbContext,IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
-        public async Task<List<QuizOptions>> GetAll()
+        public async Task<List<ListType.ListItem>> GetAllForList()
         {
             //TODO :Ganesh and Ankita ...add mapper
             var quizs = await _dbContext.QuizOptions.ToListAsync();
-            return quizs;
+            return _mapper.Map<List<ListType.ListItem>>(quizs);
         }
-        public async Task<QuizOptions> GetById(int quizoptionId)
+
+        public async Task<List<QuizOptionsDtos.QuizOptionsDto>> GetAll()
+        {
+            var quizs = await _dbContext.QuizOptions.ToListAsync();
+            return _mapper.Map<List<QuizOptionsDtos.QuizOptionsDto>>(quizs);
+        }
+        public async Task<QuizOptionsDtos.QuizOptionsDto> GetById(int quizoptionId)
         {
             //TODO :Ganesh and Ankita ...add mapper
             var quizoption = await _dbContext.QuizOptions.FindAsync(quizoptionId);
-            return quizoption;
+            return _mapper.Map<QuizOptionsDtos.QuizOptionsDto>(quizoption);
         }
 
         public async Task AddOption(QuizOptionsDtos.QuizOptionsDto dto)

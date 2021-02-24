@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuizOptionApiService, QuizOptionsDtos } from '@module/serverside';
-import { DataTableExtendedConfig } from '@module/shared';
+
 
 
 @Component({
@@ -10,17 +9,12 @@ import { DataTableExtendedConfig } from '@module/shared';
 })
 export class QuizOptionsComponent implements OnInit {
 
-  public quizOptions: QuizOptionsDtos.QuizOptions[] = [];
+  
 
-  public config :DataTableExtendedConfig = { titleColumn:[]};
-
-  constructor(private _quizOptionServive: QuizOptionApiService) { }
+  constructor() { }
 
   public ngOnInit(): void {
-    this.config.titleColumn = ['id','option','answer','quizDetailId'],
-    this._quizOptionServive.getAll()
-      .subscribe(data => this.quizOptions = data);
-      console.log(this.quizOptions);
+    
   }
   
 }
