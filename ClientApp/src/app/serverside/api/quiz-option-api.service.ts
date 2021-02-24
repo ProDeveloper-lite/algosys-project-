@@ -20,4 +20,6 @@ export class QuizOptionApiService {
         const url = this.routeGetById(quizId);
         return this.http.get(url, undefined) as Observable<any>;
     }
+  
+    
 }

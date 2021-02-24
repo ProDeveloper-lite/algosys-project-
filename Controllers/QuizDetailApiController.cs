@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineQuizWebApp.Modules.ModuleHelper;
 using OnlineQuizWebApp.Modules.QuizDetailBL;
 using OnlineQuizWebApp.Utilities;
 using System.Collections.Generic;
@@ -31,6 +32,17 @@ namespace OnlineQuizWebApp.Controllers
         public async Task<List<QuizDetailDtos.QuizDetailDto>> GetBySubject(int subjectId)
         {
             return await _service.GetBySubject(subjectId);
+        }
+        [HttpPut]
+        public async Task<QuizDetailDtos.QuizDetailDto> Create(QuizDetailDtos.CreateQuizDetail dto)
+        {
+            return await _service.Create(dto);
+        }
+
+        [HttpPost("{QuizDetailId}")]
+        public async Task Delete(int QuizDetailId)
+        {
+            await _service.Delete(QuizDetailId);
         }
     }
 }

@@ -17,5 +17,15 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
             public string QuestionText { get; set; }
             public bool IsActive { get; set; }
         }
+        [PublicAPI ]
+        public class CreateQuizDetail
+        {
+            public int SubjectId { get; set; }
+            public QuizEnums.Complexcity Complexcity { get; set; }
+            public List<string> Topic { get; set; }
+            public QuizEnums.QuestionType Type { get; set; }
+            public string QuestionText { get; set; }
+            public bool IsActive { get; set; }
+        }
     }
 }
