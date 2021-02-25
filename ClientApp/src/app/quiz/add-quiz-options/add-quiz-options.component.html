@@ -1,0 +1,18 @@
+<mat-card >
+    <mat-card-header>
+        <mat-card-title>
+            Add New Options
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="state.quizOptionsform">
+            <formly-form [form]="state.quizOptionsform" [fields]="state.quizOptionsfields" [model]="state.quizOptionsmodel" [options]="state.quizOptionsoptions">
+            </formly-form>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button type="submit" (click)="OnSubmit()">Create</button>
+        <button mat-raised-button type="button" (click)="onReset()">Reset</button>
+        <button mat-raised-button type="button" (click)="disabled()">Clear</button>
+    </mat-card-actions>
+</mat-card>

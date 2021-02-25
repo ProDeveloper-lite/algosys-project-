@@ -1,9 +1,8 @@
-<!-- <div>
+<div>
     <mat-toolbar class="button group">
-        <button mat-raised-button>Add</button>
-
+        <button mat-raised-button (click) = "OnAddClick()">Add</button>
     </mat-toolbar>
-</div> -->
+</div>
 <div>
     <app-data-table [data]="quizOptions" [config]="config"> </app-data-table>
 </div>

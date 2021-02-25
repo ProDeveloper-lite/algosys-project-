@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { QuizOptionApiService, QuizOptionsDtos } from '@module/serverside';
 import { DataTableExtendedConfig } from '@module/shared';
+import { AddQuizOptionsComponent } from '../add-quiz-options/add-quiz-options.component';
+
 
 @Component({
   selector: 'app-quiz-options-list',
@@ -13,7 +16,10 @@ export class QuizOptionsListComponent implements OnInit {
 
   public config :DataTableExtendedConfig = { titleColumn:[]};
 
-  constructor(private _quizOptionServive: QuizOptionApiService) { }
+  constructor(
+    private _quizOptionServive: QuizOptionApiService,
+    private _dialog:MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.config.titleColumn = ['id','option','isAnswer','quizDetailId'],
@@ -22,4 +28,11 @@ export class QuizOptionsListComponent implements OnInit {
       console.log(this.quizOptions);
   }
 
+  public OnAddClick(){
+    const dialogref = this._dialog.open(AddQuizOptionsComponent,{
+      width:"650px",
+      height:"400px"
+    })
+
+  }
 }

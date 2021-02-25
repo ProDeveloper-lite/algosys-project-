@@ -9,6 +9,7 @@ import { QuizDetailsComponent } from './quiz-details/quiz-details.component';
 import {QuizDetailScreenApiService} from './api-wrapper/quiz-detail-screen-api.service';
 import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
 import { QuizOptionsListComponent } from './quiz-options-list/quiz-options-list.component';
+import { AddQuizOptionsComponent } from './add-quiz-options/add-quiz-options.component';
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import { QuizOptionsListComponent } from './quiz-options-list/quiz-options-list.
         QuizDetailsComponent,
         SubjectDetailComponent,
         QuizOptionsListComponent,
+        AddQuizOptionsComponent,
      ]
 })
 export class QuizModule {
