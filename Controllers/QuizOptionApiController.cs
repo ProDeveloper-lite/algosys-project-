@@ -1,11 +1,9 @@
 ﻿using OnlineQuizWebApp.Utilities;
-using OnlineQuizWebApp.DataLayer.QuizDL;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using OnlineQuizWebApp.Modules.QuizOptionBL;
 using OnlineQuizWebApp.Modules.QuizOptionsBL;
-using OnlineQuizWebApp.Modules.ModuleHelper;
 
 namespace OnlineQuizWebApp.Controllers
 {
