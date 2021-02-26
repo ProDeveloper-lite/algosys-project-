@@ -9,8 +9,8 @@ export class QuizDetailScreenApiService {
 
   public state = {
     //TODO : anjali ....change the name of variable
-    options_sub: Object.values(QuizEnums.QuestionType) as QuizEnums.QuestionType[],
-    options_complexity: Object.values(QuizEnums.Complexcity) as QuizEnums.Complexcity[]
+    quiz_detail_option_sub: Object.values(QuizEnums.QuestionType) as QuizEnums.QuestionType[],
+    quiz_detail_options_complexity: Object.values(QuizEnums.Complexcity) as QuizEnums.Complexcity[]
   }
 
   constructor(private _subject: SubjectDetailApiService) { }
@@ -47,7 +47,7 @@ export class QuizDetailScreenApiService {
           label: 'Complexcity',
           required: true,
           appearance: 'outline',
-          options: this.state.options_complexity,
+          options: this.state.quiz_detail_options_complexity,
           valueProp: (x: string) => x,
           labelProp: (x: string) => x,
         }
@@ -70,7 +70,7 @@ export class QuizDetailScreenApiService {
           label: 'Question Type',
           required: true,
           appearance: 'outline',
-          options: this.state.options_sub,
+          options: this.state.quiz_detail_option_sub,
           valueProp: (x: string) => x,
           labelProp: (x: string) => x
         }
@@ -94,7 +94,7 @@ export class QuizDetailScreenApiService {
         }
       },
     ];
-    console.log(this.state.options_sub)
+    console.log(this.state.quiz_detail_option_sub)
     return config;
   }
 }

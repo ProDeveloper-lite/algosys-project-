@@ -29,13 +29,13 @@ export class QuizDetailApiService {
     return this.httpClient.get(url, undefined) as Observable<any>;
   }
 
-  private routeCreate = () => `api/QuizDetailApi`;
+  public routeCreate = () => `api/QuizDetailApi`;
   public create(dto: CreateQuizDetailDto): Observable<QuizDetailDto> {
     const url = this.routeCreate();
     return this.httpClient.put(url, dto, undefined) as Observable<any>;
   }
 
-  private routeDelete = (QuizDetailId: number) => `api/QuizDetailApi/${QuizDetailId}`;
+  public routeDelete = (QuizDetailId: number) => `api/QuizDetailApi/${QuizDetailId}`;
   public delete(QuizDetailId: number): Observable<void> {
     const url = this.routeDelete(QuizDetailId);
     return this.httpClient.post(url, QuizDetailId, undefined) as Observable<any>;

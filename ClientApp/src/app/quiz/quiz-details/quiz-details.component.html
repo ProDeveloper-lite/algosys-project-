@@ -1,17 +1,18 @@
 <mat-tab-group>
     <mat-tab label="Detail">
         <mat-toolbar class="button-group">
-            <button mat-raised-button>Add</button>
+            <button mat-raised-button (click) = "onAddClick()">Add</button>
         </mat-toolbar>
         <div fxLayout="row">
-            <form [formGroup]="state.form" (ngSubmit)="onSubmit()">
-                <formly-form [form]="state.form" [fields]="state.fields" [model]="state.model"
-                    [options]="state.options"></formly-form>
+            <form [formGroup]="state.quizDetailForm" (ngSubmit)="onSubmit()">
+                <formly-form [form]="state.quizDetailForm" [fields]="state.fields" [model]="state.quizDetailModel"
+                    [options]="state.quizDetailOptions"></formly-form>
                 <div class="col-sm-4">
                     <div class="example-button-row">
                         <button mat-raised-button type="submit">Create</button>
-                        <button mat-raised-button type="button" (click)="onReset()">Reset</button>
-                        <button mat-raised-button type="button" (click)="disabled()">Clear</button>
+                        <button mat-raised-button (click)="onReset()">Reset</button>
+                        <button mat-raised-button (click)="disabled()">Clear</button>
+                        <button mat-raised-button (click) = "delete()">Delete</button>
                     </div>
                 </div>
             </form>

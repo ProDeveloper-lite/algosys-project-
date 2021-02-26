@@ -14,10 +14,9 @@ import {QuizDetailApiService} from '@module/serverside';
 export class QuizDetailsComponent implements OnInit {
   public state = {
     // TODO : change variable names 
-    form: new FormGroup({}),
-    model: {},
-    options: {} as FormlyFormOptions,
-    disable: false, //remove this
+    quizDetailForm: new FormGroup({}),
+    quizDetailModel: {},
+    quizDetailOptions: {} as FormlyFormOptions,
     fields: [] as FormlyFieldConfig[],
     quizDetailId: undefined as number | undefined,
   };
@@ -25,7 +24,7 @@ export class QuizDetailsComponent implements OnInit {
   constructor(
     private _screeApi: QuizDetailScreenApiService,
     private _route: ActivatedRoute,
-    private _apiService:QuizDetailApiService
+    private _apiService:QuizDetailApiService,
   ) {}
 
   public ngOnInit(): void {
@@ -52,25 +51,35 @@ export class QuizDetailsComponent implements OnInit {
   public _getById(quizDetailId: number) {
     this._apiService
       .getById(quizDetailId)
-      .subscribe((data) => (this.state.model = data));
+      .subscribe((data) => (this.state.quizDetailModel = data));
   }
 
   public onAddClick() { 
+      
     // TODO : anjali: implement this
   }
 
   public onReset() {
-    this.state.options.resetModel();
+    this.state.quizDetailForm.reset();
   }
 
   public onSubmit() {
     //TODO anjali : use create method from apiService
-    this.state.options.resetModel();
+    this._apiService.routeCreate;
+    this.state.quizDetailOptions.resetModel();
+  
   }
 
   //TODO anjali: update/ delete 
 
-  public disabled() {  }
+  public disabled() {
+    this.state.quizDetailForm.disable();
+    }
 
+
+  public delete(){
+    this._apiService.routeDelete;
+
+  }  
 
 }
