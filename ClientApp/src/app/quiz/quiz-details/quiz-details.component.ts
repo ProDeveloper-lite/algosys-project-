@@ -4,7 +4,7 @@ import { QuizDetailScreenApiService } from "../api-wrapper/quiz-detail-screen-ap
 import { FormlyFieldConfig, FormlyFormOptions } from "@ngx-formly/core";
 import { FormGroup } from "@angular/forms";
 import { tap } from "rxjs/operators";
-import {QuizDetailApiService} from '@module/serverside';
+import { QuizDetailApiService } from "@module/serverside";
 
 @Component({
   selector: "app-quiz-details",
@@ -13,7 +13,7 @@ import {QuizDetailApiService} from '@module/serverside';
 })
 export class QuizDetailsComponent implements OnInit {
   public state = {
-    // TODO : change variable names 
+    // TODO : change variable names
     form: new FormGroup({}),
     model: {},
     options: {} as FormlyFormOptions,
@@ -25,7 +25,7 @@ export class QuizDetailsComponent implements OnInit {
   constructor(
     private _screeApi: QuizDetailScreenApiService,
     private _route: ActivatedRoute,
-    private _apiService:QuizDetailApiService
+    private _apiService: QuizDetailApiService
   ) {}
 
   public ngOnInit(): void {
@@ -55,7 +55,7 @@ export class QuizDetailsComponent implements OnInit {
       .subscribe((data) => (this.state.model = data));
   }
 
-  public onAddClick() { 
+  public onAddClick() {
     // TODO : anjali: implement this
   }
 
@@ -65,12 +65,11 @@ export class QuizDetailsComponent implements OnInit {
 
   public onSubmit() {
     //TODO anjali : use create method from apiService
+
     this.state.options.resetModel();
   }
 
-  //TODO anjali: update/ delete 
+  //TODO anjali: update/ delete
 
-  public disabled() {  }
-
-
+  public disabled() {}
 }

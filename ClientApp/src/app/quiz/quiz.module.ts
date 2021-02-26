@@ -4,7 +4,6 @@ import { SharedModule } from '@module/shared';
 import { RouteList } from './routing/quiz.routing';
 import { QuizRoutingService } from './routing/quiz-routing.service';
 import { QuizDetailListComponent } from './quiz-detail-list/quiz-detail-list.component';
-import { QuizOptionsComponent } from './quiz-options/quiz-options.component';
 import { QuizDetailsComponent } from './quiz-details/quiz-details.component';
 import {QuizDetailScreenApiService} from './api-wrapper/quiz-detail-screen-api.service';
 import { SubjectDetailComponent } from './subject-detail/subject-detail.component';
@@ -22,7 +21,6 @@ import { AddQuizOptionsComponent } from './add-quiz-options/add-quiz-options.com
     ],
     declarations: [
         QuizDetailListComponent,
-        QuizOptionsComponent,
         QuizDetailsComponent,
         SubjectDetailComponent,
         QuizOptionsListComponent,
