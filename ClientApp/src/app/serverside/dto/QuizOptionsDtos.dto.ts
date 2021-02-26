@@ -1,10 +1,14 @@
 import { QuizDetailDto } from "./QuizDetailDtos.dto";
 
 //TODO: ganesh and ankita : add new dto of quizOption
-export interface QuizOptions{
+export interface QuizOptionsDto{
     id : number;
     option : string;
-    IsAnswer: boolean;
+    isAnswer: boolean;
     quizDetailId : number;
-    quizDetail : QuizDetailDto;
+}
+export interface CreateQuizOptions{
+    option:string;
+    isAnswer: boolean;
+    quizDetailId:number;
 }

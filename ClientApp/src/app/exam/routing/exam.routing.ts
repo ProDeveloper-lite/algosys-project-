@@ -5,7 +5,7 @@ import { ExamDetailComponent } from '../exam-detail/exam-detail.component';
 export function RouteList(): Route[] {
     return [
         {
-            path: 'detail',
+            path: 'exam-detail',
             component: ExamDetailComponent,
             data: {
                 title: 'Exam Detail',

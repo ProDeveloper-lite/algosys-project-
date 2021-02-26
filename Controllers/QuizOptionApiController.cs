@@ -1,9 +1,9 @@
 ﻿using OnlineQuizWebApp.Utilities;
-using OnlineQuizWebApp.DataLayer.QuizDL;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using OnlineQuizWebApp.Modules.QuizOptionBL;
+using OnlineQuizWebApp.Modules.QuizOptionsBL;
 
 namespace OnlineQuizWebApp.Controllers
 {
@@ -16,13 +16,14 @@ namespace OnlineQuizWebApp.Controllers
             _service = service;
         }
         [HttpGet]
-        public async Task<List<QuizOptions>> GetAll()
+        public async Task<List<QuizOptionsDtos.QuizOptionsDto>> GetAll()
         {
             return await _service.GetAll();
         }
+        
 
         [HttpGet("{quizoptionId}")]
-        public async Task<QuizOptions> GetById(int quizoptionId)
+        public async Task<QuizOptionsDtos.QuizOptionsDto> GetById(int quizoptionId)
         {
             return await _service.GetById(quizoptionId);
         }
