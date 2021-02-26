@@ -7,6 +7,40 @@
     </mat-form-field>
 </div>
 <br /><br />
-<div *ngIf="state.tableData">
-    <app-data-table [data]="state.tableData" [config]="state.tableConfig"></app-data-table>
+<div *ngIf="state.tableData.length">
+    <mat-table #table [dataSource]="state.tableData">
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="onDeleteRowClick(element)">
+                    <mat-icon matTooltip='Delete'>delete </mat-icon>
+                </button>
+                <button mat-icon-button (click)="onViewRowClick(element)">
+                    <mat-icon matTooltip='View'>remove_red_eye </mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="complexcity">
+            <mat-header-cell *matHeaderCellDef> Complexcity </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.complexcity}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="topic">
+            <mat-header-cell *matHeaderCellDef> Topic </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.topic}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="questionText">
+            <mat-header-cell *matHeaderCellDef> Question Text </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.questionText}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="isActive">
+            <mat-header-cell *matHeaderCellDef> Is Active </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.isActive}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="state.titleColumn"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: state.titleColumn;"></mat-row>
+    </mat-table>
 </div>

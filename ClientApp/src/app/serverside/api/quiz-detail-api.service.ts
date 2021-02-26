@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { QuizDetailDto,CreateQuizDetailDto } from '../dto/QuizDetailDtos.dto';
-import { ListItem } from "../dto/ListType.dto";
 
 @Injectable({
   providedIn: 'root'
