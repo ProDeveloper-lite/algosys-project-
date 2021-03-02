@@ -27,5 +27,16 @@ namespace OnlineQuizWebApp.Controllers
         {
             return await _service.GetById(quizoptionId);
         }
+
+        [HttpPost]
+        public async Task AddOption(QuizOptionsDtos.CreateQuizOptions dto)
+        {
+            await _service.AddOption(dto);
+        }
+        [HttpDelete]
+        public async Task DeleteOption(int optionId)
+        {
+            await _service.DeleteOption(optionId);
+        }
     }
 }

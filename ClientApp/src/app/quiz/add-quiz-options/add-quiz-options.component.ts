@@ -28,5 +28,7 @@ export class AddQuizOptionsComponent implements OnInit {
   ngOnInit(): void {
     this.state.quizOptionsfields = this._quizOptionsSereenApi.quizOptionsScreen();
   }
-  public OnSubmit() {}
+  public OnSubmit() {
+    
+  }
 }

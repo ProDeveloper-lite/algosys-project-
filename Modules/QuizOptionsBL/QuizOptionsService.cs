@@ -35,7 +35,7 @@ namespace OnlineQuizWebApp.Modules.QuizOptionBL
             return _mapper.Map<QuizOptionsDtos.QuizOptionsDto>(quizoption);
         }
 
-        public async Task AddOption(QuizOptionsDtos.QuizOptionsDto dto)
+        public async Task AddOption(QuizOptionsDtos.CreateQuizOptions dto)
         {
             var quizDetail = await _dbContext.QuizDetail
                 .Include(x => x.Options)
