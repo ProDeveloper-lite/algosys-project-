@@ -20,7 +20,7 @@ namespace OnlineQuizWebApp.Controllers
         {
             return await _service.GetAll();
         }
-        
+
 
         [HttpGet("{quizoptionId}")]
         public async Task<QuizOptionsDtos.QuizOptionsDto> GetById(int quizoptionId)
@@ -33,7 +33,7 @@ namespace OnlineQuizWebApp.Controllers
         {
             await _service.AddOption(dto);
         }
-        [HttpDelete]
+        [HttpPost("{optionId}")]
         public async Task DeleteOption(int optionId)
         {
             await _service.DeleteOption(optionId);

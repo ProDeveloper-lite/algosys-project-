@@ -25,9 +25,9 @@ export class QuizOptionApiService {
     const url = this.routeAddOptions();
     return this.http.post(url, dto, undefined) as Observable<any>
   }
-  public routeDelete = (QuizOptionsId: number) => `api/QuizOptionsApi/${QuizOptionsId}`;
-  public delete(QuizOptionsId: number): Observable<void> {
-    const url = this.routeDelete(QuizOptionsId);
-    return this.http.post(url, QuizOptionsId, undefined) as Observable<any>;
+  public routeDelete = (optionId: number) => `api/QuizOptionsApi/${optionId}`;
+  public delete(optionId: number): Observable<void> {
+    const url = this.routeDelete(optionId);
+    return this.http.post(url, optionId, undefined) as Observable<any>;
   }
 }

@@ -3,7 +3,28 @@
         <button mat-raised-button (click) = "OnAddClick()">Add</button>
     </mat-toolbar>
 </div>
-<div>
+<!-- <div>
     <app-data-table [data]="quizOptions" [config]="config"> </app-data-table>
+</div> -->
+<div *ngIf="state.tableData.length">
+    <mat-table #table [dataSource]="state.tableData">
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="onDeleteRowClick(element)">
+                    <mat-icon matTooltip='Delete'>delete </mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="option">
+            <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.option}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="isAnswer">
+            <mat-header-cell *matHeaderCellDef> IsAnswer </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.isAnswer}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="state.titleColumn"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: state.titleColumn;"></mat-row>
+    </mat-table>
 </div>
-<br><br>
