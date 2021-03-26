@@ -58,6 +58,9 @@ export class QuizDetailsComponent implements OnInit {
       
     // TODO : anjali: implement this
   }
+  public editQuizDetail(){
+    
+  }
 
   public onReset() {
     this.state.quizDetailForm.reset();

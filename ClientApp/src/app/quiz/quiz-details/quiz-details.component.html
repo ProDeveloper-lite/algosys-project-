@@ -1,7 +1,8 @@
 <mat-tab-group>
     <mat-tab label="Detail">
         <mat-toolbar class="button-group">
-            <button mat-raised-button (click) = "onAddClick()">Add</button>
+            <button mat-raised-button (click)="onAddClick()">Add</button>
+            <button mat-raised-button (click)="editQuizDetail()">Edit</button>
         </mat-toolbar>
         <div fxLayout="row">
             <form [formGroup]="state.quizDetailForm" (ngSubmit)="onSubmit()">
@@ -12,7 +13,7 @@
                         <button mat-raised-button type="submit">Create</button>
                         <button mat-raised-button (click)="onReset()">Reset</button>
                         <button mat-raised-button (click)="disabled()">Clear</button>
-                        <button mat-raised-button (click) = "delete()">Delete</button>
+                        <button mat-raised-button (click)="delete()">Delete</button>
                     </div>
                 </div>
             </form>

@@ -2,6 +2,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using OnlineQuizWebApp.DataLayer.QuizDL;
+using OnlineQuizWebApp.Modules.ModuleHelper;
 using OnlineQuizWebApp.SqlDbUtils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -36,15 +37,15 @@ namespace OnlineQuizWebApp.Modules.QuizDetailBL
             return _mapper.Map<QuizDetailDtos.QuizDetailDto>(quizDetail);
         }
 
-        public async Task<QuizDetailDtos.QuizDetailDto> Create(QuizDetailDtos.CreateQuizDetail quizDetailDto)
+        public async Task Create(QuizDetailDtos.CreateQuizDetail dto)
         {
-            var quizDetail = _mapper.Map<QuizDetail>(quizDetailDto);
+            var quizDetail = _mapper.Map<QuizDetail>(dto);
             quizDetail.IsActive = false;
             await _dbContext.QuizDetail.AddAsync(quizDetail);
             _dbContext.SaveChanges();
 
             var savedInstance = await _dbContext.QuizDetail.FindAsync(quizDetail.Id);
-            return _mapper.Map<QuizDetailDtos.QuizDetailDto>(savedInstance);
+             _mapper.Map<ListType.ListItem>(savedInstance);
         }
 
         public async Task<QuizDetailDtos.QuizDetailDto> Update(QuizDetailDtos.QuizDetailDto quizDetailDto)

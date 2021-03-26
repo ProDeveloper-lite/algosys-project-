@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { QuizOptionApiService, QuizOptionsDtos } from '@module/serverside';
-import { ToastrService } from '@module/shared';
+import { DialogService, ToastrService } from '@module/shared';
 import { AddQuizOptionsComponent } from '../add-quiz-options/add-quiz-options.component';
 
 
@@ -27,7 +27,8 @@ export class QuizOptionsListComponent implements OnInit {
   constructor(
     private _quizOptionServive: QuizOptionApiService,
     private _dialog: MatDialog,
-    private _toastrService: ToastrService
+    private _toastrService: ToastrService,
+    private _dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -42,11 +43,14 @@ export class QuizOptionsListComponent implements OnInit {
     this._quizOptionServive.getAll().subscribe(data => this.state.tableData = data)
 
   }
+  // public showDeleteSubjectDialog() {
+  //   this._dialogService.confirmDelete(() => this.onDeleteRowClick());
+  // }
   public onDeleteRowClick(dto: QuizOptionsDtos.QuizOptionsDto) {
-    if (confirm('Are u sure to delete this record permenently ?'))
-      this._quizOptionServive.delete(dto.id);
-    this._toastrService.success("Deleted Succesfully");
+    this._quizOptionServive.delete(dto.id)
+     this._toastrService.success("Deleted Succesfully");
   }
+
 
   public OnAddClick() {
     const dialogConfig = new MatDialogConfig();

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using OnlineQuizWebApp.Modules.QuizOptionBL;
 using OnlineQuizWebApp.Modules.QuizOptionsBL;
+using OnlineQuizWebApp.Modules.ModuleHelper;
 
 namespace OnlineQuizWebApp.Controllers
 {
@@ -31,7 +32,7 @@ namespace OnlineQuizWebApp.Controllers
         [HttpPost]
         public async Task AddOption(QuizOptionsDtos.CreateQuizOptions dto)
         {
-            await _service.AddOption(dto);
+             await _service.AddOption(dto);
         }
         [HttpPost("{optionId}")]
         public async Task DeleteOption(int optionId)

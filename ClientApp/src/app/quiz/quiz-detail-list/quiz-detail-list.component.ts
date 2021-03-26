@@ -51,7 +51,9 @@ export class QuizDetailListComponent implements OnInit {
       .subscribe((data) => (this.state.subjectList = data));
   }
 
-  public onDeleteRowClick(row: QuizDetailDtos.QuizDetailDto) {}
+  public onDeleteRowClick(id:QuizDetailDtos.QuizDetailDto) {
+    this._service.delete(id.id)
+  }
 
   public onViewRowClick(row: QuizDetailDtos.QuizDetailDto) {
     this._routingService.showQuizDetail(row.id);

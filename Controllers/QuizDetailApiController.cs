@@ -34,9 +34,9 @@ namespace OnlineQuizWebApp.Controllers
             return await _service.GetBySubject(subjectId);
         }
         [HttpPut]
-        public async Task<QuizDetailDtos.QuizDetailDto> Create(QuizDetailDtos.CreateQuizDetail dto)
+        public async Task Create(QuizDetailDtos.CreateQuizDetail dto)
         {
-            return await _service.Create(dto);
+             await _service.Create(dto);
         }
 
         [HttpPost("{QuizDetailId}")]
