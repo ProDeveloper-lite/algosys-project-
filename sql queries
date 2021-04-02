@@ -1,0 +1,29 @@
+CREATE TABLE SubjectDetail (
+   Id int IDENTITY(1,1) PRIMARY KEY,
+   Name varchar(255) NOT NULL,
+);
+
+CREATE TABLE QuizDetail (
+   Id int IDENTITY(1,1) PRIMARY KEY,
+   Complexcity varchar(255) NOT NULL,
+Topic varchar(max) NOT NULL,
+[Type] varchar(255) NOT NULL,
+QuestionText nvarchar(max) NOT NULL,
+IsActive bit NOT NULL,
+SubjectId int NOT NULL
+);
+
+CREATE TABLE QuizOptions (
+   Id int IDENTITY(1,1) PRIMARY KEY,
+   [Option] varchar(max) NOT NULL,
+IsAnswer bit NOT NULL,
+QuizDetailId int NOT NULL
+);
+
+
+
+#insert query
+
+insert into SubjectDetail values ('English'),('Maths')
+insert into QuizDetail values('Easy','["Addition"]','SingleCorrect','2+2=?',1,2)
+insert into QuizOptions values('4',1,2),('2',0,2),('5',0,2),('9',0,2)
